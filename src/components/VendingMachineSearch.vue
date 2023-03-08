@@ -13,6 +13,22 @@
           <div class="flex-grow my-auto text-sm">Search Vending Machines</div>
 
           <div class="flex-none my-auto ml-2">
+            <label class="flex items-center cursor-pointer" @click="showOnlyItemsInStock = !showOnlyItemsInStock" title="Show only items in stock">
+              <div class="relative">
+                <input type="checkbox" :checked="showOnlyItemsInStock" :value="true" />
+              </div>
+            </label>
+          </div>
+
+          <div class="flex-none my-auto ml-2">
+            <label class="flex items-center cursor-pointer" @click="currencySearch = !currencySearch" title="Search the currency (sell) field as well">
+              <div class="relative">
+                <input type="checkbox" :checked="currencySearch" :value="true" />
+              </div>
+            </label>
+          </div>
+
+          <div class="flex-none my-auto ml-2">
             <button @click="$emit('close')" type="button" class="mx-auto inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-200 focus:outline-none">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -55,7 +71,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr v-if="searchedItemIds.includes(sellOrder.itemId)" v-for="sellOrder in vendingMachine.sellOrders">
+              <tr v-if="searchedItemIds.includes(sellOrder.itemId) || searchedItemIds.includes(sellOrder.currencyId) && (!showOnlyItemsInStock || (showOnlyItemsInStock && sellOrder.amountInStock > 0))" v-for="sellOrder in vendingMachine.sellOrders">
 
                 <!-- stock -->
                 <td class="p-2">
@@ -124,6 +140,8 @@ export default {
     return {
       items: null,
       searchText: "",
+      showOnlyItemsInStock: false,
+      currencySearch: false,
     };
   },
   mounted() {
@@ -160,7 +178,15 @@ export default {
     vendingMachinesWithSearchedItems: function() {
       return this.vendingMachines ? this.vendingMachines.filter((vendingMachine) => {
 
-        var itemIdsForSale = vendingMachine.sellOrders.map((sellOrder) => sellOrder.itemId);
+        if(this.showOnlyItemsInStock){
+          var itemIdsForSale = vendingMachine.sellOrders.filter((sellOrder) => sellOrder.amountInStock > 0).map((sellOrder) => sellOrder.itemId);
+          var currencyIdsForSale = vendingMachine.sellOrders.filter((sellOrder) => sellOrder.amountInStock > 0).map((sellOrder) => sellOrder.currencyId);
+        } else {
+          var itemIdsForSale = vendingMachine.sellOrders.map((sellOrder) => sellOrder.itemId);
+          var currencyIdsForSale = vendingMachine.sellOrders.map((sellOrder) => sellOrder.currencyId);
+        }
+
+        if(this.currencySearch) itemIdsForSale = itemIdsForSale.concat(currencyIdsForSale);
 
         for(var i=0; i < itemIdsForSale.length; i++){
           var itemIdForSale = itemIdsForSale[i];
