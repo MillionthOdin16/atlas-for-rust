@@ -1,8 +1,8 @@
 {
-  "name": "@liamcottle/atlas-for-rust",
+  "name": "@Brandin/atlas-for-rust",
   "description": "Atlas for Rust",
-  "version": "1.0.5",
-  "author": "Liam Cottle",
+  "version": "1.0.0",
+  "author": "Brandin Arsenault",
   "private": true,
   "main": "background.js",
   "scripts": {
