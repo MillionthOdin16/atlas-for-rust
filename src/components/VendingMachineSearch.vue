@@ -1,6 +1,6 @@
 <template>
   <Transition name="slide-up">
-    <div v-if="isShowing" class="bg-white rounded-t text-white z-vending-machine-contents bg-black-semi-transparent" style="width:300px;">
+    <div v-if="isShowing" class="bg-white rounded-t text-white z-vending-machine-contents bg-black-semi-transparent" style="width:25rem;">
 
       <!-- header -->
       <div class="flex flex-col p-3 bg-gray-600 rounded-t">
@@ -31,7 +31,7 @@
       </div>
 
       <!-- results -->
-      <div class="p-4 overflow-y-scroll" style="height:400px;">
+      <div class="p-4 overflow-y-scroll" style="height:60rem;">
 
         <div v-for="vendingMachine in vendingMachinesWithSearchedItems" class="mb-4">
 
