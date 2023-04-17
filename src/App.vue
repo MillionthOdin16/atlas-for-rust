@@ -70,10 +70,10 @@
             <!-- Bottom Bar -->
             <div class="flex-none flex bg-gray-700 px-4 py-2 text-white z-bottom-bar">
 
-              <div class="flex-grow">
+              <div class="flex flex-row flex-grow"> <!-- Add flex-row and margin here -->
 
                 <!-- fcm status -->
-                <div class="flex text-xs">
+                <div class="flex text-xs mx-2">
                   <svg class="my-auto w-3 h-3 mr-1" viewBox="0 0 24 24" :class="{
                   'text-yellow-500': this.fcmStatus === 'not_ready',
                   'text-green-500': this.fcmStatus === 'ready',
@@ -85,7 +85,7 @@
                 </div>
 
                 <!-- expo status -->
-                <div class="flex text-xs">
+                <div class="flex text-xs mx-2">
                   <svg class="my-auto w-3 h-3 mr-1" viewBox="0 0 24 24" :class="{
                   'text-yellow-500': this.expoStatus === 'not_ready',
                   'text-green-500': this.expoStatus === 'ready',
@@ -97,7 +97,7 @@
                 </div>
 
                 <!-- companion push status -->
-                <div class="flex text-xs">
+                <div class="flex text-xs mx-2">
                   <svg class="my-auto w-3 h-3 mr-1" viewBox="0 0 24 24" :class="{
                   'text-yellow-500': this.companionPushStatus === 'not_ready',
                   'text-green-500': this.companionPushStatus === 'ready',
@@ -111,16 +111,18 @@
               </div>
 
               <div class="flex flex-col text-white text-xs my-auto text-right">
-                <div>Atlas v{{ appversion }}</div>
-                <div class="flex mx-auto">
-                  <div>Developed with</div>
-                  <div class="mx-1 text-red-500">
-                    <svg class="w-4 h-4" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                    </svg>
-                  </div>
-                  <div>by <a class="hover:text-gray-300" target="_blank" href="https://liamcottle.com">Liam Cottle</a></div>
-                </div>
+                <button @click="isShowingAboutModal = true" type="button" class="mx-auto inline-flex items-center pl-1.5 pr-1.5 border border-transparent rounded-full shadow-sm text-gray-800 bg-gray-300 hover:bg-gray-200 focus:outline-none">
+                  <div>Atlas v{{ appversion }}</div>
+                </button>
+<!--                <div class="flex mx-auto">-->
+<!--                  <div>Developed with</div>-->
+<!--                  <div class="mx-1 text-red-500">-->
+<!--                    <svg class="w-4 h-4" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">-->
+<!--                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>-->
+<!--                    </svg>-->
+<!--                  </div>-->
+<!--                  <div>by <a class="hover:text-gray-300" target="_blank" href="https://liamcottle.com">Liam Cottle</a></div>-->
+<!--                </div>-->
               </div>
 
             </div>
