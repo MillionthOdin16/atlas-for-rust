@@ -122,11 +122,23 @@
 
       <!-- map markers: VendingMachine=3 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Vending Machines">
-        <l-marker v-if="mapMarker.type === 3" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+        <l-marker
+            v-for="(mapMarker, index) in rustMapMarkers.filter(marker => marker.type === 3)"
+            :zIndexOffset="900"
+            :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
+            :key="'map_marker:' + index"
+            @click="onMapMarkerClick(mapMarker)"
+        >
           <l-tooltip :content="mapMarker.name"/>
-          <l-icon :icon-size="[30, 30]" icon-url="images/map/shop_green.png"></l-icon>
+          <!-- If any sell order in the vending machine has a positive amount in stock, it is green. -->
+          <l-icon v-if="mapMarker.sellOrders.some(sellOrder => sellOrder.amountInStock > 0)" :icon-size="[30, 30]" icon-url="images/map/shop_green.png"></l-icon>
+          <!-- If vending machine has no sell orders, it is gray. -->
+          <l-icon v-else-if="mapMarker.sellOrders.length === 0" :icon-size="[30, 30]" icon-url="images/map/shop_gray.png"></l-icon>
+          <!-- If all sell orders in the vending machine have zero stock, it is orange. -->
+          <l-icon v-else :icon-size="[30, 30]" icon-url="images/map/shop_orange.png"></l-icon>
         </l-marker>
       </l-layer-group>
+
 
       <!-- map markers: CH47=4 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Chinook">
