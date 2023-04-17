@@ -14,7 +14,7 @@
             <!-- Logo -->
             <div class="flex-none flex py-4 bg-gray-800">
               <a target="_blank" href="https://github.com/liamcottle/atlas-for-rust" class="mx-auto inline-flex items-center justify-center">
-                <img src="icon.png" alt="" class=" h-14 w-14 rounded-md bg-gray-300 shadow"/>
+                <img src="icon.png" alt="" class=" h-10 w-10 rounded-md bg-gray-300 shadow"/>
               </a>
             </div>
 
@@ -28,7 +28,11 @@
             <div class="flex-none bg-gray-800 py-4">
 
               <!-- About Button -->
-              <div class="flex mb-4">
+              <div class="flex mb-4 has-tooltip">
+                <!-- about button tooltip -->
+                <div class='tooltip rounded shadow-lg h-10 p-2 bg-gray-800 text-white ml-20 whitespace-nowrap'>
+                  <span>About</span>
+                </div>
                 <button @click="isShowingAboutModal = true" type="button" class="mx-auto inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-200 focus:outline-none">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
@@ -37,17 +41,17 @@
               </div>
 
               <!-- Logout Button -->
-              <div class="flex mb-4">
+              <!--<div class="flex mb-4">
                 <button @click="isShowingLogoutModal = true" type="button" class="mx-auto inline-flex items-center p-1 border border-transparent rounded-full shadow-sm text-gray-700 bg-gray-300 hover:bg-gray-200 focus:outline-none">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                   </svg>
                 </button>
-              </div>
+              </div>-->
 
               <!-- Steam Account Button -->
               <div class="flex-none flex bg-gray-800">
-                <img @click="isShowingLogoutModal = true" :src="'https://companion-rust.facepunch.com/api/avatar/' + this.steamId" alt="" class="mx-auto inline-flex items-center justify-center h-14 w-14 rounded-md bg-gray-300 shadow cursor-pointer border-2 border-gray-500 hover:border-gray-400"/>
+                <img @click="isShowingLogoutModal = true" :src="'https://companion-rust.facepunch.com/api/avatar/' + this.steamId" alt="" class="mx-auto inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-300 shadow cursor-pointer border-2 border-gray-500 hover:border-gray-400"/>
               </div>
 
             </div>
