@@ -173,6 +173,13 @@
       </l-layer-group>
 
       <!-- todo: GenericRadius=7 -->
+      <!-- map markers: GenericRadius=7 -->
+      <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="GenericRadius">
+        <l-marker v-if="mapMarker.type === 7" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+          <l-tooltip content="GenericRadius"/>
+          <l-icon :icon-size="[30, 30]" icon-url="images/unknown_item.png"></l-icon>
+        </l-marker>
+      </l-layer-group>
 
     </l-map>
 
@@ -183,7 +190,7 @@
       <div class="bg-white rounded-t text-white z-vending-machine-contents mr-4 bg-black-semi-transparent" style="width:400px;">
 
         <!-- team chat header -->
-        <div @click="isShowingTeamChat = !isShowingTeamChat" class="flex p-3 rounded-t bg-gray-600 cursor-pointer">
+        <div @click="isShowingTeamChat = !isShowingTeamChat" class="flex p-2 rounded-t bg-gray-600 cursor-pointer">
 
           <div class="flex mr-2 my-auto">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -254,12 +261,12 @@
       </div>
 
       <!-- team members -->
-      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow">
-        <div class="absolute bottom-0 pb-2">
-          <div v-if="rustTeamMembers.length > 0" v-for="teamMember in rustTeamMembers" class="flex text-lg mt-4 cursor-pointer" :class="{
-          'text-rust-team-member-offline': !teamMember.isOnline,
-          'text-rust-team-member-online': teamMember.isOnline && teamMember.isAlive,
-          'text-rust-team-member-dead': teamMember.isOnline && !teamMember.isAlive,
+      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap">
+        <div v-if="rustTeamMembers.length > 0" v-for="teamMember in rustTeamMembers"
+             class="flex text-lg mt-4 mx-2 cursor-pointer" :class="{
+      'text-rust-team-member-offline': !teamMember.isOnline,
+      'text-rust-team-member-online': teamMember.isOnline && teamMember.isAlive,
+      'text-rust-team-member-dead': teamMember.isOnline && !teamMember.isAlive,
         }" @click="$refs.map.mapObject.flyTo(getLatLngBoundsFromWorldXY(teamMember.x, teamMember.y), 3);">
 
             <!-- offline -->
@@ -280,7 +287,6 @@
             <!-- player name -->
             <span style="text-shadow:1px 1px #000000;">{{ teamMember.name }}</span>
 
-          </div>
         </div>
       </div>
 
