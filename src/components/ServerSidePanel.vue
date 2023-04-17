@@ -5,7 +5,9 @@
     <div v-for="server in servers" class="py-2 has-tooltip flex">
 
       <!-- server icon -->
-      <div @click="onServerSelected(server)" class="inline-flex items-center justify-center h-14 w-14 rounded-md bg-gray-500 shadow border-4 cursor-pointer hover:border-gray-400" :class="[isServerSelected(server) ? 'border-green-500 hover:border-green-400' : 'border-transparent']">
+      <div @click="onServerSelected(server)" class="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-500 shadow border-4 cursor-pointer hover:border-gray-400" :class="[isServerSelected(server) ? 'border-green-500 hover:border-green-400' : 'border-transparent']">
+        <!-- server icon image -->
+        <img v-if="server.icon" class="h-10 w-10 rounded-full" :src="server.icon" />
         <span class="text-xl font-medium leading-none text-white">
           {{ server.name.charAt(0).toUpperCase() }}
         </span>
@@ -20,7 +22,7 @@
 
     <!-- add server button -->
     <div class="py-2">
-      <div @click="onAddServer" class="inline-flex items-center justify-center h-14 w-14 rounded-md bg-gray-300 shadow cursor-pointer hover:bg-gray-200">
+      <div @click="onAddServer" class="inline-flex items-center justify-center h-10 w-10 rounded-md bg-gray-300 shadow cursor-pointer hover:bg-gray-200">
         <span class="text-xl font-medium leading-none text-gray-800">+</span>
       </div>
     </div>
