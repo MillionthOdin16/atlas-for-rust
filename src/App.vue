@@ -12,10 +12,10 @@
           <div class="flex-none h-full flex flex-col">
 
             <!-- Logo -->
-            <div class="flex-none flex py-4 bg-gray-800">
-              <a target="_blank" href="https://github.com/liamcottle/atlas-for-rust" class="mx-auto inline-flex items-center justify-center">
-                <img src="icon.png" alt="" class=" h-10 w-10 rounded-md bg-gray-300 shadow"/>
-              </a>
+            <div class="flex-none flex py-4 bg-gray-800 ">
+            <!--<a target="_blank" href="https://github.com/liamcottle/atlas-for-rust" class="mx-auto inline-flex items-center justify-center">-->
+                <img src="icon.png" alt="" class=" h-10 w-10 rounded-md bg-gray-300 shadow mx-auto inline-flex items-center justify-center"/>
+            <!--</a>-->
             </div>
 
             <!-- Divider -->

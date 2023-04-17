@@ -16,6 +16,8 @@
 
               <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-headline">Atlas for Rust</h3>
               <h4 class="text-md leading-6 text-gray-500 mb-4">v{{ version }}</h4>
+              <h5 class="text-md leading-6 text-gray-500 mb-4"><a class="underline hover:text-gray-700" target="_blank" href="https://github.com/liamcottle/atlas-for-rust">Github Project</a></h5>
+
 
               <div class="flex flex-col w-full mt-2">
 
