@@ -20,7 +20,7 @@
       </div>
 
       <!-- sell orders -->
-      <div class="px-4 overflow-y-scroll" style="height:400px;">
+      <div class="bg-gray-800 rounded-b px-4 overflow-y-scroll" style="height:400px;">
         <table v-if="vendingMachine.sellOrders.length > 0" class="table-auto my-2 mx-auto">
           <thead>
           <tr>
@@ -35,7 +35,7 @@
             <!-- stock -->
             <td class="p-2">
               <div class="rounded p-2 relative" style="background:#CCCCCC66;">
-                <div class="flex" style="width:50px;height:50px;">
+                <div class="flex" style="width:20px;height:20px;">
                   <div class="mx-auto my-auto">{{sellOrder.amountInStock}}</div>
                 </div>
               </div>
@@ -43,9 +43,13 @@
 
             <!-- item for sale -->
             <td class="p-2">
-              <div @click="onItemClick(sellOrder.itemId)" class="flex rounded p-2 relative cursor-pointer" style="background:#CCCCCC66;">
+              <div @click="onItemClick(sellOrder.itemId)" class="flex rounded p-2 relative cursor-pointer has-tooltip" style="background:#CCCCCC66;">
                 <div class="relative">
-                  <img v-if="sellOrder.itemIsBlueprint" class="absolute" src="images/blueprint.png" width="50" height="50"/>
+                  <!-- item tooltip -->
+                  <div class='tooltip rounded shadow-lg h-10 p-2 bg-gray-800 text-white mt-0 whitespace-nowrap'>
+                    <span>{{ findItemById(sellOrder.itemId).name }}</span>
+                  </div>
+                  <img v-if="sellOrder.itemIsBlueprint" class="absolute" src="images/blueprint.png" width="20" height="20"/>
                   <img class="relative" :src="getItemImage(sellOrder.itemId) || 'images/unknown_item.png'" width="50" height="50" onerror="this.src = 'images/unknown_item.png';"/>
                 </div>
                 <div class="absolute bottom-0 right-0 text-sm pr-1 pb-1">x{{sellOrder.quantity}}</div>
@@ -54,8 +58,12 @@
 
             <!-- currency item -->
             <td class="p-2">
-              <div @click="onItemClick(sellOrder.currencyId)" class="flex rounded p-2 relative cursor-pointer" style="background:#CCCCCC66;">
+              <div @click="onItemClick(sellOrder.currencyId)" class="flex rounded p-2 relative cursor-pointer has-tooltip" style="background:#CCCCCC66;">
                 <div class="relative">
+                  <!-- currency tooltip -->
+                  <div class='tooltip rounded shadow-lg h-10 p-2 bg-gray-800 text-white mt-0 whitespace-nowrap'>
+                    <span>{{ findItemById(sellOrder.currencyId).name }}</span>
+                  </div>
                   <img v-if="sellOrder.currencyIsBlueprint" class="absolute" src="images/blueprint.png" width="50" height="50"/>
                   <img :src="getItemImage(sellOrder.currencyId) || 'images/unknown_item.png'" width="50" height="50" onerror="this.src = 'images/unknown_item.png';"/>
                 </div>
