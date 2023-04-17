@@ -539,10 +539,10 @@ export default {
       }
 
       // if user selected same server, clear selected server
-      if(this.selectedServer && this.selectedServer.id === server.id){
-        this.selectedServer = null;
-        return;
-      }
+      // if(this.selectedServer && this.selectedServer.id === server.id){
+      //   this.selectedServer = null;
+      //   return;
+      // }
 
       // update selected server
       this.selectedServer = event.server;
