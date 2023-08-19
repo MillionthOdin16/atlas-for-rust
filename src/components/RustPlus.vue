@@ -8,8 +8,9 @@
         <div class="text-md font-bold">{{server.name}}</div>
         <div class="text-sm">
           <span>{{server.ip}}:{{server.port}}</span>
-          <span v-if="info"> • Players: {{info.players}} / {{info.maxPlayers}}</span>
+          <span v-if="info"> • Players: {{info.players}} / {{info.maxPlayers}} ({{info.queuedPlayers}})</span>
           <span v-if="info"> • Last Wiped: <timeago :datetime="info.wipeTime * 1000" :auto-update="60"></timeago></span>
+          <span v-if="time"> • Time: {{time.time}}</span>
         </div>
       </div>
 
@@ -190,7 +191,7 @@
       <div class="bg-white rounded-t text-white z-vending-machine-contents mr-4 bg-black-semi-transparent" style="width:400px;">
 
         <!-- team chat header -->
-        <div @click="isShowingTeamChat = !isShowingTeamChat" class="flex p-2 rounded-t bg-gray-600 cursor-pointer">
+        <div @click="isShowingTeamChat = !isShowingTeamChat" class="flex p-3 rounded-t bg-gray-600 cursor-pointer">
 
           <div class="flex mr-2 my-auto">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -261,27 +262,32 @@
       </div>
 
       <!-- team members -->
-      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap">
+      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap bottom-0 pb-2">
         <div v-if="rustTeamMembers.length > 0" v-for="teamMember in rustTeamMembers"
              class="flex text-lg mt-4 mx-2 cursor-pointer" :class="{
-      'text-rust-team-member-offline': !teamMember.isOnline,
-      'text-rust-team-member-online': teamMember.isOnline && teamMember.isAlive,
-      'text-rust-team-member-dead': teamMember.isOnline && !teamMember.isAlive,
-        }" @click="$refs.map.mapObject.flyTo(getLatLngBoundsFromWorldXY(teamMember.x, teamMember.y), 3);">
+              'text-rust-team-member-offline': !teamMember.isOnline,
+              'text-rust-team-member-online': teamMember.isOnline && teamMember.isAlive,
+              'text-rust-team-member-dead': teamMember.isOnline && !teamMember.isAlive,
+             }" @click="$refs.map.mapObject.flyTo(getLatLngBoundsFromWorldXY(teamMember.x, teamMember.y), 3);">
 
             <!-- offline -->
             <svg v-if="!teamMember.isOnline" class="my-auto w-3 h-3 mr-1" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              <path fill="currentColor" stroke-width="2" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
             </svg>
 
             <!-- online: alive -->
             <svg v-if="teamMember.isOnline && teamMember.isAlive" class="my-auto w-3 h-3 mr-1" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+              <path fill="currentColor" stroke-width="2" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
             </svg>
 
             <!-- online: dead -->
-            <svg v-if="teamMember.isOnline && !teamMember.isAlive" class="my-auto w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            <svg v-if="teamMember.isOnline && !teamMember.isAlive" class="my-auto w-4 h-4 mr-1" stroke="currentColor" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <path fill-rule="evenodd" stroke-width="4" clip-rule="evenodd" d="M16.1896 24.4574C16.2922 24.4643 16.4247 24.469 16.5938 24.4689C17.421 24.4682 18.221 24.6479 18.9157 25.0906C19.6175 25.5379 20.0533 26.1525 20.3142 26.7508C20.6015 27.4097 20.7008 28.1245 20.7347 28.6981C21.4538 28.7908 22.5061 28.7956 23.9819 28.7944C25.4578 28.7932 26.5101 28.7867 27.229 28.6928C27.262 28.1192 27.3601 27.4042 27.6463 26.7448C27.9062 26.1461 28.341 25.5308 29.0421 25.0824C29.7361 24.6385 30.5358 24.4575 31.363 24.4568C31.5321 24.4567 31.6645 24.4517 31.7671 24.4447C31.8057 24.1411 31.8239 23.7055 31.8234 23.0531C31.822 21.2993 32.5311 20.2328 32.9597 19.5882C33.0413 19.4654 33.1128 19.3579 33.1672 19.2639C33.4832 18.7181 33.9728 17.6962 33.9704 14.6977C33.9683 12.0844 32.8149 10.1853 31.032 8.87861C29.1909 7.52923 26.6293 6.79219 23.9639 6.79437C21.2986 6.79655 18.7381 7.53779 16.8992 8.89019C15.1185 10.1998 13.9682 12.1008 13.9704 14.7141C13.9729 17.7126 14.4641 18.7337 14.781 19.2789C14.8356 19.3728 14.9073 19.4802 14.9891 19.6029C15.4188 20.2468 16.1296 21.3122 16.1311 23.0659C16.1316 23.7183 16.1506 24.154 16.1896 24.4574ZM14.1311 23.0676C14.1334 25.8521 14.4416 26.4707 16.5954 26.4689C18.7493 26.4671 18.7508 28.3235 18.7518 29.5611C18.7528 30.7986 20.9067 30.7969 23.9836 30.7944C27.0604 30.7918 29.2143 30.7901 29.2133 29.5525C29.2123 28.3149 29.2108 26.4586 31.3646 26.4568C33.5185 26.455 33.8256 25.836 33.8234 23.0514C33.8225 21.9498 34.1592 21.429 34.5662 20.7995C35.1879 19.8379 35.9736 18.6227 35.9704 14.696C35.9596 1.48071 11.9595 1.50037 11.9704 14.7157C11.9736 18.6424 12.7613 19.8563 13.3846 20.8168C13.7926 21.4456 14.1302 21.9659 14.1311 23.0676Z"/>
+                <path fill-rule="evenodd" stroke-width="4" clip-rule="evenodd" d="M19.9779 21.1049C20.2541 21.1046 20.4777 20.8806 20.4775 20.6044C20.4773 20.3283 20.2532 20.1046 19.9771 20.1049C19.701 20.1051 19.4773 20.3291 19.4775 20.6053C19.4777 20.8814 19.7018 21.1051 19.9779 21.1049ZM19.9796 23.1049C21.3603 23.1037 22.4786 21.9835 22.4775 20.6028C22.4764 19.2221 21.3562 18.1037 19.9755 18.1049C18.5948 18.106 17.4764 19.2262 17.4775 20.6069C17.4786 21.9876 18.5988 23.106 19.9796 23.1049Z"/>
+                <path fill-rule="evenodd" stroke-width="4" clip-rule="evenodd" d="M27.9779 21.0983C28.2541 21.0981 28.4777 20.874 28.4775 20.5979C28.4773 20.3217 28.2532 20.0981 27.9771 20.0983C27.701 20.0985 27.4773 20.3226 27.4775 20.5987C27.4777 20.8748 27.7018 21.0985 27.9779 21.0983ZM27.9796 23.0983C29.3603 23.0972 30.4786 21.977 30.4775 20.5962C30.4764 19.2155 29.3562 18.0972 27.9755 18.0983C26.5948 18.0994 25.4764 19.2196 25.4775 20.6003C25.4786 21.9811 26.5988 23.0994 27.9796 23.0983Z"/>
+                <path fill-rule="evenodd" stroke-width="4" clip-rule="evenodd" d="M20.4151 37.3453L9.37409 33.8063L9.98455 31.9018L23.6821 36.2922L37.3725 31.8793L37.9861 33.7829L26.9509 37.3399L37.9919 40.8788L37.3815 42.7834L23.6839 38.393L9.99348 42.8058L9.3799 40.9023L20.4151 37.3453Z"/>
+              </g>
             </svg>
 
             <!-- player name -->
@@ -362,6 +368,7 @@ export default {
 
       /* cached data */
       info: null,
+      time: null,
       teamInfo: null,
       teamChat: null,
       map: null,
@@ -567,6 +574,13 @@ export default {
         if(message.response.info){
           this.info = message.response.info;
           console.log(this.info);
+          return true;
+        }
+
+        //handle time response
+        else if(message.response.time){
+          this.time = message.response.time;
+          console.log(this.time);
           return true;
         }
 
@@ -781,6 +795,7 @@ export default {
           // map must be loaded before markers and team info
           this.getMapMarkers();
           this.getTeamInfo();
+          this.getTimeInfo();
 
         });
 
@@ -809,7 +824,14 @@ export default {
         },
       }, callback);
     },
-    getTeamInfo: function(callback) {
+    getTimeInfo: function(callback) {
+      this.sendRequest({
+        getTimeInfo: {
+
+        },
+      }, callback);
+    },
+      getTeamInfo: function(callback) {
       this.sendRequest({
         getTeamInfo: {
 
@@ -907,6 +929,7 @@ export default {
 
       // clear cached data
       this.info = null;
+      this.timeInfo = null;
       this.teamInfo = null;
       this.map = null;
       this.mapMarkers = null;
@@ -991,6 +1014,17 @@ export default {
 
       // update map markers
       this.rustMapMarkers = this.mapMarkers.markers;
+
+    },
+    timeInfo: function() {
+
+      // make sure data exists
+      if(!this.timeInfo){
+        return;
+      }
+
+      // update time
+      this.rustTime = this.timeInfo.time;
 
     },
     teamInfo: function() {
