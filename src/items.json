@@ -6,6 +6,12 @@
         "description": "A large wooden pool that can be filled with water."
     },
     {
+        "id": 343045591,
+        "shortname": "aiming.module.mlrs",
+        "name": "MLRS Aiming Module",
+        "description": "An aiming system computer module for an MLRS vehicle."
+    },
+    {
         "id": 1055319033,
         "shortname": "ammo.grenadelauncher.buckshot",
         "name": "40mm Shotgun Round",
@@ -94,6 +100,12 @@
         "shortname": "ammo.rocket.hv",
         "name": "High Velocity Rocket",
         "description": "Fast moving rocket ammunition. Short to medium range self-propelled, unguided rocket which deals large splash damage on impact but less damage than a normal rocket."
+    },
+    {
+        "id": -1843426638,
+        "shortname": "ammo.rocket.mlrs",
+        "name": "MLRS Rocket",
+        "description": "A rocket intended for use in an MLRS (Multiple Launch Rocket System)."
     },
     {
         "id": -384243979,
@@ -198,6 +210,12 @@
         "description": "Bunny Ears. Grants additional Egg Vision allowing you to detect more eggs during an Easter egg hunt."
     },
     {
+        "id": -747743875,
+        "shortname": "attire.egg.suit",
+        "name": "Egg Suit",
+        "description": "An eggsquisite egg costume, can be painted when unequipped."
+    },
+    {
         "id": 794356786,
         "shortname": "attire.hide.boots",
         "name": "Hide Boots",
@@ -250,6 +268,12 @@
         "shortname": "attire.reindeer.headband",
         "name": "Reindeer Antlers",
         "description": "A festive reindeer antlers headband and nose."
+    },
+    {
+        "id": -842267147,
+        "shortname": "attire.snowman.helmet",
+        "name": "Snowman Helmet",
+        "description": "A snowman helmet which provides ample protection."
     },
     {
         "id": -2139580305,
@@ -405,13 +429,25 @@
         "id": 1112162468,
         "shortname": "blue.berry",
         "name": "Blue Berry",
-        "description": "A blue berry."
+        "description": "A blue berry. Can be eaten or used in mixing table recipes to create teas."
     },
     {
         "id": -586342290,
         "shortname": "blueberries",
         "name": "Blueberries",
         "description": "Blueberries picked from berry bushes. Eating it provides a small boost to health, hunger, and thirst."
+    },
+    {
+        "id": 1036321299,
+        "shortname": "bluedogtags",
+        "name": "Blue Dog Tags",
+        "description": "Blue Dog Tags"
+    },
+    {
+        "id": 1364514421,
+        "shortname": "blueidtag",
+        "name": "Blue ID Tag",
+        "description": "Blue ID Tag"
     },
     {
         "id": -996920608,
@@ -462,6 +498,12 @@
         "description": "A canteen used to carry Water. Left click to drink, right click to fill from water sources, or to pour out."
     },
     {
+        "id": 755224797,
+        "shortname": "bottle.vodka",
+        "name": "Vodka Bottle",
+        "description": "A bottle of Russian Vodka."
+    },
+    {
         "id": 884424049,
         "shortname": "bow.compound",
         "name": "Compound Bow",
@@ -483,13 +525,13 @@
         "id": -180129657,
         "shortname": "box.wooden",
         "name": "Wood Storage Box",
-        "description": "Keep your things in this wooden storage box. Stores up to 12 items."
+        "description": "Keep your things in this wooden storage box. Stores up to 18 items."
     },
     {
         "id": 833533164,
         "shortname": "box.wooden.large",
         "name": "Large Wood Box",
-        "description": "Keep your things in this wooden storage box. Stores up to 30 items."
+        "description": "Keep your things in this wooden storage box. Stores up to 48 items."
     },
     {
         "id": 850280505,
@@ -600,10 +642,10 @@
         "description": "Smash some faces with this large piece of candy"
     },
     {
-        "id": 946662961,
-        "shortname": "car.key",
-        "name": "Car Key",
-        "description": "A key to a car, created at a vehicle lift. Keep this item safe; if lost you'll be unable to drive the car again!"
+        "id": 1230691307,
+        "shortname": "captainslog",
+        "name": "Captain's Log",
+        "description": "A deteriorating piece of paper with information relating to the last moments of this vessel."
     },
     {
         "id": 656371028,
@@ -628,6 +670,12 @@
         "shortname": "cardtable",
         "name": "Card Table",
         "description": "A table for playing card games"
+    },
+    {
+        "id": 1524980732,
+        "shortname": "carvable.pumpkin",
+        "name": "Carvable Pumpkin",
+        "description": "A pumpkin that you can carve. \n\nRequires wood as a fuel source."
     },
     {
         "id": 476066818,
@@ -664,6 +712,12 @@
         "shortname": "chainsaw",
         "name": "Chainsaw",
         "description": "A Chainsaw. Very effective at cutting trees in addition to soft fleshy objects. Requires Low Grade Fuel to run."
+    },
+    {
+        "id": -1944704288,
+        "shortname": "chair.icethrone",
+        "name": "Ice Throne",
+        "description": "Every home needs a chair. A decorative item which provides comfort while seated."
     },
     {
         "id": 1534542921,
@@ -708,10 +762,16 @@
         "description": "A decorative Paper lantern"
     },
     {
-        "id": 363467698,
-        "shortname": "chocholate",
+        "id": -965336208,
+        "shortname": "chocolate",
         "name": "Chocolate Bar",
         "description": "Chocolate Bar found as loot. Eating it provides a small boost to health, hunger, and thirst."
+    },
+    {
+        "id": 486661382,
+        "shortname": "clantable",
+        "name": "Clan Table",
+        "description": "A table for managing clans."
     },
     {
         "id": 968019378,
@@ -814,6 +874,18 @@
         "shortname": "computerstation",
         "name": "Computer Station",
         "description": "A Computer station for remote control access"
+    },
+    {
+        "id": 1176355476,
+        "shortname": "concretehatchet",
+        "name": "Concrete Hatchet",
+        "description": "A salvaged piece of concrete and rebar which can be used to harvest wood"
+    },
+    {
+        "id": -1360171080,
+        "shortname": "concretepickaxe",
+        "name": "Concrete Pickaxe",
+        "description": "A salvaged piece of concrete and rebar with a sharp edge. Can be used to harvest Stone, Metal ore and Sulfur ore."
     },
     {
         "id": 968421290,
@@ -924,6 +996,24 @@
         "description": "A vibrant flashing floor that pulses in time to music."
     },
     {
+        "id": 1046904719,
+        "shortname": "diverhatchet",
+        "name": "Abyss Metal Hatchet",
+        "description": "Metal hatchet, reclaimed from the abyss, perfect for survival and crafting"
+    },
+    {
+        "id": 1561022037,
+        "shortname": "diverpickaxe",
+        "name": "Abyss Metal Pickaxe",
+        "description": "Plucked from the abyss, this Metal Pickaxe is a prized possession for any survivor"
+    },
+    {
+        "id": 1846605708,
+        "shortname": "divertorch",
+        "name": "Abyss Torch",
+        "description": "Illuminate the underwater depths with this durable and waterproof diving torch"
+    },
+    {
         "id": 296519935,
         "shortname": "diving.fins",
         "name": "Diving Fins",
@@ -946,6 +1036,12 @@
         "shortname": "diving.wetsuit",
         "name": "Wetsuit",
         "description": "A Wetsuit providing protection from frigid waters."
+    },
+    {
+        "id": 1223900335,
+        "shortname": "dogtagneutral",
+        "name": "Dog Tag",
+        "description": "Neutral Dog Tag"
     },
     {
         "id": 1409529282,
@@ -1011,7 +1107,7 @@
         "id": 1588492232,
         "shortname": "drone",
         "name": "Drone",
-        "description": "A remote controlled drone."
+        "description": "A remote controlled drone operated from the Computer station with a limited range. Easily damaged from impacts."
     },
     {
         "id": -1519126340,
@@ -1125,7 +1221,7 @@
         "id": -502177121,
         "shortname": "electric.doorcontroller",
         "name": "Door Controller",
-        "description": "A Door Controller. Will manipulate the state of the closest door when it recieves power"
+        "description": "A Door Controller. Will manipulate the state of the closest door when it receives power"
     },
     {
         "id": -939424778,
@@ -1138,6 +1234,12 @@
         "shortname": "electric.fuelgenerator.small",
         "name": "Small Generator",
         "description": "A small electric generator powered by Low Grade Fuel that outputs 40 power."
+    },
+    {
+        "id": -1196547867,
+        "shortname": "electric.furnace",
+        "name": "Electric Furnace",
+        "description": "An electrical version of a furnace that uses electricity instead of a fuel source."
     },
     {
         "id": -295829489,
@@ -1296,6 +1398,12 @@
         "description": "A component used for crafting C4 and Rockets."
     },
     {
+        "id": 2054391128,
+        "shortname": "factorydoor",
+        "name": "Factory Door",
+        "description": "Medium strength door, vulnerable to explosives. Contains a bulletproof viewing portal"
+    },
+    {
         "id": -1018587433,
         "shortname": "fat.animal",
         "name": "Animal Fat",
@@ -1336,6 +1444,12 @@
         "shortname": "firework.boomer.orange",
         "name": "Orange Boomer",
         "description": "A very large mortar type firework with an orange starburst"
+    },
+    {
+        "id": -379734527,
+        "shortname": "firework.boomer.pattern",
+        "name": "Pattern Boomer",
+        "description": "A special boomer which allows you light up the night sky with a custom pattern that you draw. Multiple colors and altitude settings are available."
     },
     {
         "id": -1553999294,
@@ -1464,6 +1578,12 @@
         "description": "A Yellow Perch, commonly found in freshwater rivers."
     },
     {
+        "id": -1707425764,
+        "shortname": "fishing.tackle",
+        "name": "Fishing Tackle",
+        "description": "Fishing Tackle"
+    },
+    {
         "id": 1569882109,
         "shortname": "fishingrod.handmade",
         "name": "Handmade Fishing Rod",
@@ -1546,6 +1666,66 @@
         "shortname": "fogmachine",
         "name": "Fogger-3000",
         "description": "A Fog machine which runs on low grade fuel. Can be set to fill an area with a dense fog or triggered by motion."
+    },
+    {
+        "id": -134959124,
+        "shortname": "frankensteins.monster.01.head",
+        "name": "Light Frankenstein Head",
+        "description": "Slightly faster, slightly weaker.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": 106959911,
+        "shortname": "frankensteins.monster.01.legs",
+        "name": "Light Frankenstein Legs",
+        "description": "Slightly faster, slightly weaker.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": -1624770297,
+        "shortname": "frankensteins.monster.01.torso",
+        "name": "Light Frankenstein Torso",
+        "description": "Slightly faster, slightly weaker.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": -1732475823,
+        "shortname": "frankensteins.monster.02.head",
+        "name": "Medium Frankenstein Head",
+        "description": "A balanced head.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": 835042040,
+        "shortname": "frankensteins.monster.02.legs",
+        "name": "Medium Frankenstein Legs",
+        "description": "A balanced set of legs.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": 1491753484,
+        "shortname": "frankensteins.monster.02.torso",
+        "name": "Medium Frankenstein Torso",
+        "description": "A balanced torso.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": -297099594,
+        "shortname": "frankensteins.monster.03.head",
+        "name": "Heavy Frankenstein Head",
+        "description": "Slightly slower, slightly stronger.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": -2024549027,
+        "shortname": "frankensteins.monster.03.legs",
+        "name": "Heavy Frankenstein Legs",
+        "description": "Slightly slower, slightly stronger.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": 1614528785,
+        "shortname": "frankensteins.monster.03.torso",
+        "name": "Heavy Frankenstein Torso",
+        "description": "Slightly slower, slightly stronger.\n\nCombined at a Frankenstein Table to create your very own monster."
+    },
+    {
+        "id": 1575635062,
+        "shortname": "frankensteintable",
+        "name": "Frankenstein Table",
+        "description": "Place a monsters head, torso and legs into the table to summon Frankensteins monster."
     },
     {
         "id": 1413014235,
@@ -1680,6 +1860,12 @@
         "description": "Get into the holiday spirit with these decorative giant lollipops"
     },
     {
+        "id": -558880549,
+        "shortname": "gingerbreadsuit",
+        "name": "Gingerbread Suit",
+        "description": "A suit made of gingerbread, slightly crunchy."
+    },
+    {
         "id": -690276911,
         "shortname": "gloweyes",
         "name": "Glowing Eyes",
@@ -1704,10 +1890,22 @@
         "description": "A Gravestone marking the remains of an unknown soul"
     },
     {
+        "id": -455286320,
+        "shortname": "grayidtag",
+        "name": "Gray ID Tag",
+        "description": "Gray ID Tag"
+    },
+    {
         "id": 858486327,
         "shortname": "green.berry",
         "name": "Green Berry",
-        "description": "A green berry."
+        "description": "A green berry. Can be eaten or used in mixing table recipes to create teas."
+    },
+    {
+        "id": 1762167092,
+        "shortname": "greenidtag",
+        "name": "Green ID Tag",
+        "description": "Green ID Tag"
     },
     {
         "id": 1840822026,
@@ -1720,6 +1918,18 @@
         "shortname": "grenade.f1",
         "name": "F1 Grenade",
         "description": "Reliable explosive device."
+    },
+    {
+        "id": -936921910,
+        "shortname": "grenade.flashbang",
+        "name": "Flashbang",
+        "description": "A bright explosive device which blinds and disorients anyone near it upon detonation"
+    },
+    {
+        "id": 1556365900,
+        "shortname": "grenade.molotov",
+        "name": "Molotov Cocktail",
+        "description": "An incendiary device"
     },
     {
         "id": 1263920163,
@@ -1860,10 +2070,22 @@
         "description": "An Ox mask to celebrate the 2021 Lunar New Year."
     },
     {
+        "id": -986782031,
+        "shortname": "hat.rabbitmask",
+        "name": "Rabbit Mask",
+        "description": "A Beautifully crafted Rabbit mask to celebrate the 2023 Lunar New Year"
+    },
+    {
         "id": 271048478,
         "shortname": "hat.ratmask",
         "name": "Rat Mask",
         "description": "A Beautifully crafted bronze and gold Rat mask to celebrate the 2020 Lunar New Year"
+    },
+    {
+        "id": 709206314,
+        "shortname": "hat.tigermask",
+        "name": "Tiger Mask",
+        "description": "A special tiger mask to celebrate Chinese New Year"
     },
     {
         "id": -1478212975,
@@ -1878,21 +2100,57 @@
         "description": "A Hatchet, useful for chopping trees and dismembering corpses."
     },
     {
+        "id": -470439097,
+        "shortname": "hazmatsuit.arcticsuit",
+        "name": "Arctic Suit",
+        "description": "An arctic variant of the hazmat suit which trades radiation for cold protection."
+    },
+    {
+        "id": -797592358,
+        "shortname": "hazmatsuit.diver",
+        "name": "Abyss Divers Suit",
+        "description": "A divers suit found in the abyss, doubles as a reliable hazmat suit"
+    },
+    {
         "id": 1266491000,
         "shortname": "hazmatsuit",
         "name": "Hazmat Suit",
         "description": "A hazmat suit made from radiation resistant rubber."
     },
     {
+        "id": 861513346,
+        "shortname": "hazmatsuit.lumberjack",
+        "name": "Lumberjack Suit",
+        "description": "A Lumberjack Suit"
+    },
+    {
+        "id": 491263800,
+        "shortname": "hazmatsuit.nomadsuit",
+        "name": "Nomad Suit",
+        "description": "A nomad suit."
+    },
+    {
         "id": -560304835,
         "shortname": "hazmatsuit.spacesuit",
         "name": "Space Suit",
-        "description": "A space suit built for harsh conditions."
+        "description": "A spacesuit built for harsh conditions."
     },
     {
         "id": -253079493,
         "shortname": "hazmatsuit_scientist",
         "name": "Scientist Suit",
+        "description": "A hazmat suit made from radiation resistant rubber."
+    },
+    {
+        "id": 1107575710,
+        "shortname": "hazmatsuit_scientist_arctic",
+        "name": "Arctic Scientist Suit",
+        "description": "A hazmat suit made from radiation resistant rubber."
+    },
+    {
+        "id": 86840834,
+        "shortname": "hazmatsuit_scientist_nvgm",
+        "name": "NVGM Scientist Suit",
         "description": "A hazmat suit made from radiation resistant rubber."
     },
     {
@@ -1944,6 +2202,12 @@
         "description": "A Hitching post and Trough. Dismounting your horses here will keep them healthy and fed as long as it is kept stocked with food."
     },
     {
+        "id": -1214542497,
+        "shortname": "hmlmg",
+        "name": "HMLMG",
+        "description": "A hand made belt-fed light machine gun with high damage, high rate of fire, low accuracy during short bursts."
+    },
+    {
         "id": -1442559428,
         "shortname": "hobobarrel",
         "name": "Hobo Barrel",
@@ -1968,10 +2232,22 @@
         "description": "A set of wooden horse armor"
     },
     {
+        "id": -1323101799,
+        "shortname": "horse.saddle.double",
+        "name": "Double Horse Saddle",
+        "description": "A horse saddle with two seats. Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option"
+    },
+    {
         "id": -1997543660,
         "shortname": "horse.saddle",
         "name": "Horse Saddle",
         "description": "Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option"
+    },
+    {
+        "id": 1559915778,
+        "shortname": "horse.saddle.single",
+        "name": "Single Horse Saddle",
+        "description": "A horse saddle with one seat. Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option"
     },
     {
         "id": 1400460850,
@@ -2058,6 +2334,48 @@
         "description": "A high-yield resource gathering Icepick."
     },
     {
+        "id": 1538126328,
+        "shortname": "industrial.combiner",
+        "name": "Industrial Combiner",
+        "description": "Combines three separate industrial connections into one connection."
+    },
+    {
+        "id": 610102428,
+        "shortname": "industrial.conveyor",
+        "name": "Industrial Conveyor",
+        "description": "Moves an item from one container to another."
+    },
+    {
+        "id": 1430085198,
+        "shortname": "industrial.crafter",
+        "name": "Industrial Crafter",
+        "description": "Attaches to a workbench to allow automated crafting."
+    },
+    {
+        "id": 742745918,
+        "shortname": "industrial.splitter",
+        "name": "Industrial Splitter",
+        "description": "Splits an industrial connection into three separate connections."
+    },
+    {
+        "id": 1268178466,
+        "shortname": "industrial.wall.light.green",
+        "name": "Green Industrial Wall Light",
+        "description": "A small green light source."
+    },
+    {
+        "id": 1623701499,
+        "shortname": "industrial.wall.light",
+        "name": "Industrial Wall Light",
+        "description": "A small light source."
+    },
+    {
+        "id": -1160621614,
+        "shortname": "industrial.wall.light.red",
+        "name": "Red Industrial Wall Light",
+        "description": "A small red light source."
+    },
+    {
         "id": 185586769,
         "shortname": "innertube.horse",
         "name": "Inner Tube",
@@ -2109,7 +2427,7 @@
         "id": 286193827,
         "shortname": "jar.pickle",
         "name": "Pickles",
-        "description": "Cucumbers in a vinegar bath, jarred by an amatuer. Eat at your own risk."
+        "description": "Cucumbers in a vinegar bath, jarred by an amateur. Eat at your own risk."
     },
     {
         "id": 1601468620,
@@ -2226,6 +2544,12 @@
         "description": "A locker for keeping your clothes and armor safe!"
     },
     {
+        "id": -2027988285,
+        "shortname": "locomotive",
+        "name": "Locomotive",
+        "description": "A powerful locomotive."
+    },
+    {
         "id": -1469578201,
         "shortname": "longsword",
         "name": "Longsword",
@@ -2238,10 +2562,34 @@
         "description": "Low Grade Fuel, used to power light sources."
     },
     {
+        "id": -763071910,
+        "shortname": "lumberjack hoodie",
+        "name": "Lumberjack Hoodie",
+        "description": "A Lumberjack Hoodie"
+    },
+    {
+        "id": -399173933,
+        "shortname": "lumberjack.hatchet",
+        "name": "Prototype Hatchet",
+        "description": "A prototype field hatchet, useful for gathering wood"
+    },
+    {
+        "id": 236677901,
+        "shortname": "lumberjack.pickaxe",
+        "name": "Prototype Pickaxe",
+        "description": "A prototype field pickaxe. Useful for gathering ore from rocks."
+    },
+    {
         "id": -1961560162,
         "shortname": "lunar.firecrackers",
         "name": "Firecracker String",
         "description": "Happy Lunar New Year!"
+    },
+    {
+        "id": -2026042603,
+        "shortname": "mace.baseballbat",
+        "name": "Baseball Bat",
+        "description": ""
     },
     {
         "id": -1966748496,
@@ -2322,6 +2670,18 @@
         "description": "A megaphone that lets you broadcast your voice. [attack] to activate your voice."
     },
     {
+        "id": -1334569149,
+        "shortname": "metal.facemask.hockey",
+        "name": "Hockey Mask",
+        "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks."
+    },
+    {
+        "id": 110116923,
+        "shortname": "metal.facemask.icemask",
+        "name": "Ice Metal Facemask",
+        "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks."
+    },
+    {
         "id": -194953424,
         "shortname": "metal.facemask",
         "name": "Metal Facemask",
@@ -2338,6 +2698,12 @@
         "shortname": "metal.ore",
         "name": "Metal Ore",
         "description": "A naturally occurring rock containing metal and metal compounds. You can extract this metal using a furnace."
+    },
+    {
+        "id": -1478855279,
+        "shortname": "metal.plate.torso.icevest",
+        "name": "Ice Metal Chest Plate",
+        "description": "A metal plate covering your torso, provides excellent protection from all forms of attacks."
     },
     {
         "id": 1110385766,
@@ -2400,6 +2766,12 @@
         "description": "Used for mixing recipes."
     },
     {
+        "id": -1449152644,
+        "shortname": "mlrs",
+        "name": "MLRS",
+        "description": "M270 Multiple Launch Rocket System"
+    },
+    {
         "id": -20045316,
         "shortname": "mobilephone",
         "name": "Mobile Phone",
@@ -2452,6 +2824,12 @@
         "shortname": "note",
         "name": "Note",
         "description": "A scrap of paper for leaving notes."
+    },
+    {
+        "id": -282193997,
+        "shortname": "orangeidtag",
+        "name": "Orange ID Tag",
+        "description": "Orange ID Tag"
     },
     {
         "id": 2063916636,
@@ -2544,6 +2922,18 @@
         "description": "A Pickaxe, useful for gathering ore from rocks."
     },
     {
+        "id": 180752235,
+        "shortname": "pinkidtag",
+        "name": "Pink ID Tag",
+        "description": "Pink ID Tag"
+    },
+    {
+        "id": -144513264,
+        "shortname": "pipetool",
+        "name": "Pipe Tool",
+        "description": "Now you're thinking with pipes!"
+    },
+    {
         "id": -75944661,
         "shortname": "pistol.eoka",
         "name": "Eoka Pistol",
@@ -2560,6 +2950,12 @@
         "shortname": "pistol.nailgun",
         "name": "Nailgun",
         "description": "A construction tool turned deadly"
+    },
+    {
+        "id": 1914691295,
+        "shortname": "pistol.prototype17",
+        "name": "Prototype 17",
+        "description": "A burst fire prototype pistol"
     },
     {
         "id": 1373971859,
@@ -2652,6 +3048,12 @@
         "description": "Strong metal object."
     },
     {
+        "id": 140006625,
+        "shortname": "ptz.cctv.camera",
+        "name": "PTZ CCTV Camera",
+        "description": "A CCTV Camera system can be used for realtime surveillance and security when paired with the Computer Station. This camera has pan, tilt, and zoom capability."
+    },
+    {
         "id": -567909622,
         "shortname": "pumpkin",
         "name": "Pumpkin",
@@ -2662,6 +3064,12 @@
         "shortname": "pumpkinbasket",
         "name": "Pumpkin Bucket",
         "description": "A pumpkin basket to help you collect candy much faster during Trick or Treat events with left click. Use right click to throw candy"
+    },
+    {
+        "id": -1386082991,
+        "shortname": "purpleidtag",
+        "name": "Purple ID Tag",
+        "description": "Purple ID Tag"
     },
     {
         "id": 2021351233,
@@ -2703,7 +3111,19 @@
         "id": 1272194103,
         "shortname": "red.berry",
         "name": "Red Berry",
-        "description": "A red berry."
+        "description": "A red berry. Can be eaten or used in mixing table recipes to create teas."
+    },
+    {
+        "id": -602717596,
+        "shortname": "reddogtags",
+        "name": "Red Dog Tags",
+        "description": "Red Dog Tags"
+    },
+    {
+        "id": 70102328,
+        "shortname": "redidtag",
+        "name": "Red ID Tag",
+        "description": "Red ID Tag"
     },
     {
         "id": -1861522751,
@@ -2728,6 +3148,24 @@
         "shortname": "rf_pager",
         "name": "RF Pager",
         "description": "An RF Pager. An audible tone will be produced when a signal is picked up on the listening frequency. Can be set to silent mode."
+    },
+    {
+        "id": 1394042569,
+        "shortname": "rhib",
+        "name": "RHIB",
+        "description": ""
+    },
+    {
+        "id": -139037392,
+        "shortname": "rifle.ak.diver",
+        "name": "Abyss Assault Rifle",
+        "description": "A waterlogged assault rifle from the abyss"
+    },
+    {
+        "id": -1335497659,
+        "shortname": "rifle.ak.ice",
+        "name": "Assault Rifle - ICE",
+        "description": "Ice-covered high damage machine rifle."
     },
     {
         "id": 1545779598,
@@ -2820,6 +3258,12 @@
         "description": "A Length of Rope."
     },
     {
+        "id": 1878053256,
+        "shortname": "rowboat",
+        "name": "Rowboat",
+        "description": ""
+    },
+    {
         "id": -1104881824,
         "shortname": "rug.bear",
         "name": "Rug Bear Skin",
@@ -2862,6 +3306,12 @@
         "description": "A beautiful hand crafted gold and green egg, with a miniature traincart contained inside."
     },
     {
+        "id": -173268128,
+        "shortname": "rustige_egg_f",
+        "name": "Rustigé Egg - White",
+        "description": "A beautiful hand crafted gold and white egg, with a miniature underwater lab scene contained inside."
+    },
+    {
         "id": -1978999529,
         "shortname": "salvaged.cleaver",
         "name": "Salvaged Cleaver",
@@ -2895,7 +3345,7 @@
         "id": 177226991,
         "shortname": "scarecrow",
         "name": "Scarecrow",
-        "description": "Get into the halloween spirit with this decorate deployable item."
+        "description": "Get into the halloween spirit with this decorative deployable item."
     },
     {
         "id": 273951840,
@@ -3246,6 +3696,12 @@
         "description": "A human skull."
     },
     {
+        "id": 1312843609,
+        "shortname": "skull",
+        "name": "Skull",
+        "description": "A spooky skull"
+    },
+    {
         "id": 971362526,
         "shortname": "skull.trophy.jar",
         "name": "Skull Trophy",
@@ -3304,6 +3760,36 @@
         "shortname": "skull_fire_pit",
         "name": "Skull Fire Pit",
         "description": "Enjoy burning your enemies remnants to ashes with this Halloween exclusive! Provides warmth and light, and you can cook with it."
+    },
+    {
+        "id": 1819863051,
+        "shortname": "skylantern",
+        "name": "Sky Lantern",
+        "description": "A beautiful sky lantern. Can be launched in any direction. Has one inventory slot. Can be Ignited with a lit torch."
+    },
+    {
+        "id": -1770889433,
+        "shortname": "skylantern.skylantern.green",
+        "name": "Sky Lantern - Green",
+        "description": ""
+    },
+    {
+        "id": -1824770114,
+        "shortname": "skylantern.skylantern.orange",
+        "name": "Sky Lantern - Orange",
+        "description": ""
+    },
+    {
+        "id": 831955134,
+        "shortname": "skylantern.skylantern.purple",
+        "name": "Sky Lantern - Purple",
+        "description": ""
+    },
+    {
+        "id": -1433390281,
+        "shortname": "skylantern.skylantern.red",
+        "name": "Sky Lantern - Red",
+        "description": ""
     },
     {
         "id": -333406828,
@@ -3402,10 +3888,28 @@
         "description": "Get into the holiday spirit with this decorative snowman"
     },
     {
+        "id": -1364246987,
+        "shortname": "snowmobile",
+        "name": "Snowmobile",
+        "description": "A custom snowmobile, made of various bits and pieces."
+    },
+    {
+        "id": 1768112091,
+        "shortname": "snowmobiletomaha",
+        "name": "Tomaha Snowmobile",
+        "description": "An old snowmobile from around 1980."
+    },
+    {
         "id": -555122905,
         "shortname": "sofa",
         "name": "Sofa",
         "description": "A comfortable old sofa. A decorative item which provides comfort and seats two."
+    },
+    {
+        "id": 782422285,
+        "shortname": "sofa.pattern",
+        "name": "Sofa - Pattern",
+        "description": "A comfortable old sofa with a floral pattern. A decorative item which provides comfort and seats two."
     },
     {
         "id": -343857907,
@@ -3480,6 +3984,18 @@
         "description": "Frighten your guests with creepy and spooky halloween sounds!"
     },
     {
+        "id": -596876839,
+        "shortname": "spraycan",
+        "name": "Spray Can",
+        "description": "Use the Spray Can to leave Tags or reskin your items. Press [attack] to spray and [attack2] to reskin items."
+    },
+    {
+        "id": -1366326648,
+        "shortname": "spraycandecal",
+        "name": "Spray Can Decal",
+        "description": ""
+    },
+    {
         "id": -369760990,
         "shortname": "stash.small",
         "name": "Small Stash",
@@ -3528,16 +4044,16 @@
         "description": "The Storage Monitor attaches to the Tool Cupboard and Large Storage Box to monitor the container contents. Output sends a pulse when the container is updated."
     },
     {
+        "id": -1049172752,
+        "shortname": "storageadaptor",
+        "name": "Storage Adaptor",
+        "description": "Attach to a storage container to allow industrial input/output connections."
+    },
+    {
         "id": 2104517339,
         "shortname": "strobelight",
         "name": "Strobe Light",
         "description": "A flashing light, 3 speeds. Causes seizures."
-    },
-    {
-        "id": -239306133,
-        "shortname": "submarine.torpedo.rising",
-        "name": "Surface torpedo",
-        "description": "A torpedo for use in a submarine. Fires ahead while rising to the water's surface."
     },
     {
         "id": -1671551935,
@@ -3610,6 +4126,12 @@
         "shortname": "sunglasses03gold",
         "name": "Sunglasses",
         "description": "A pair of sunglasses. Functional and stylish!"
+    },
+    {
+        "id": -1003665711,
+        "shortname": "supertea",
+        "name": "Super Serum",
+        "description": "Super Serum, more health, more ore, more wood, more scrap"
     },
     {
         "id": 1397052267,
@@ -3702,6 +4224,12 @@
         "description": "A Torch. Lights your way at night and can be used as a weapon."
     },
     {
+        "id": -1175656359,
+        "shortname": "torch.torch.skull",
+        "name": "Cultist Deer Torch",
+        "description": "Cultist Deer Torch"
+    },
+    {
         "id": -582782051,
         "shortname": "trap.bear",
         "name": "Snap Trap",
@@ -3710,8 +4238,14 @@
     {
         "id": -1663759755,
         "shortname": "trap.landmine",
-        "name": "Land Mine",
-        "description": "An old military Landmine. If you stand on one, you can ask a friend to disarm it before it explodes."
+        "name": "Homemade Landmine",
+        "description": "Homemade Landmine. If you stand on one, you can ask a friend to disarm it before it explodes."
+    },
+    {
+        "id": 975983052,
+        "shortname": "trophy",
+        "name": "Twitch Rivals Trophy",
+        "description": "A trophy dedicated to the survivors of Rust Twitch Rivals"
     },
     {
         "id": 223891266,
@@ -3724,6 +4258,12 @@
         "shortname": "tshirt.long",
         "name": "Longsleeve T-Shirt",
         "description": "A t-shirt with long sleeves."
+    },
+    {
+        "id": -561148628,
+        "shortname": "tugboat",
+        "name": "Tugboat",
+        "description": ""
     },
     {
         "id": -1478445584,
@@ -3816,6 +4356,12 @@
         "description": "Single module seating for two passengers, with protection at the front."
     },
     {
+        "id": -1040518150,
+        "shortname": "vehicle.2mod.camper",
+        "name": "Camper Vehicle Module",
+        "description": "Dual module camper that allows up to 4 players to respawn. Also includes a barbecue, a locker and a small box for item storage."
+    },
+    {
         "id": -1693832478,
         "shortname": "vehicle.2mod.flatbed",
         "name": "Large Flatbed Vehicle Module",
@@ -3868,6 +4414,12 @@
         "shortname": "vending.machine",
         "name": "Vending Machine",
         "description": "Trade your goods with other players safely by creating sell and buy orders.  \r\n\r\nIf a raider gains access to the rear panel, they will have free reign over all of your goodies. Keep it safe."
+    },
+    {
+        "id": 996757362,
+        "shortname": "wagon",
+        "name": "Wagon",
+        "description": "A train car."
     },
     {
         "id": -985781766,
@@ -3948,6 +4500,12 @@
         "description": "A short wall made of solid ice."
     },
     {
+        "id": -81700958,
+        "shortname": "wall.window.bars.brickskin",
+        "name": "Brick Skin Window Bars",
+        "description": "Metal window bars made to fit a brick skin sized window."
+    },
+    {
         "id": -819720157,
         "shortname": "wall.window.bars.metal",
         "name": "Metal Window Bars",
@@ -4023,13 +4581,25 @@
         "id": -1284169891,
         "shortname": "waterpump",
         "name": "Water Pump",
-        "description": "Can be placed in a water source to collect that water while powered. Can be connected to other Water entites."
+        "description": "Can be placed in a water source to collect that water while powered. Can be connected to other Water entities."
     },
     {
         "id": 174866732,
         "shortname": "weapon.mod.8x.scope",
         "name": "16x Zoom Scope",
         "description": "A large 16x zoom scope."
+    },
+    {
+        "id": 838308300,
+        "shortname": "weapon.mod.burstmodule",
+        "name": "Burst Module",
+        "description": "Forces the weapon to fire in 3 round bursts."
+    },
+    {
+        "id": 2005491391,
+        "shortname": "weapon.mod.extendedmags",
+        "name": "Extended Magazine",
+        "description": "Larger magazine size"
     },
     {
         "id": 952603248,
@@ -4083,7 +4653,13 @@
         "id": 854447607,
         "shortname": "white.berry",
         "name": "White Berry",
-        "description": "A white berry."
+        "description": "A white berry. Can be eaten or used in mixing table recipes to create teas."
+    },
+    {
+        "id": 22947882,
+        "shortname": "whiteidtag",
+        "name": "White ID Tag",
+        "description": "White ID Tag"
     },
     {
         "id": -144417939,
@@ -4206,6 +4782,12 @@
         "description": "Use this to conceal any item in a lazily wrapped gift"
     },
     {
+        "id": -2027793839,
+        "shortname": "xmas.advent",
+        "name": "Advent Calendar",
+        "description": "Receive a special gift each and every day!"
+    },
+    {
         "id": -1667224349,
         "shortname": "xmas.decoration.baubels",
         "name": "Decorative Baubels",
@@ -4252,6 +4834,12 @@
         "shortname": "xmas.door.garland",
         "name": "Festive Doorway Garland",
         "description": "A Festive decoration to spruce up your  doorway during the holdiays!"
+    },
+    {
+        "id": -1230433643,
+        "shortname": "xmas.double.door.garland",
+        "name": "Festive Double Doorway Garland",
+        "description": "A Festive decoration to spruce up your double doorway during the holidays!"
     },
     {
         "id": -151387974,
@@ -4311,6 +4899,12 @@
         "id": 1660145984,
         "shortname": "yellow.berry",
         "name": "Yellow Berry",
-        "description": "A yellow berry."
+        "description": "A yellow berry. Can be eaten or used in mixing table recipes to create teas."
+    },
+    {
+        "id": 81423963,
+        "shortname": "yellowidtag",
+        "name": "Yellow ID Tag",
+        "description": "Yellow ID Tag"
     }
 ]
