@@ -97,7 +97,7 @@
             <span v-if="teamMember.isOnline && !teamMember.isAlive"> (Dead)</span>
           </l-tooltip>
           <l-icon>
-            <img :src="teamMember.avatarUrl" width="50" height="50" class="border-2" style="border-radius:50%;background-color:#000000;width:40px;height:40px;" :class="{
+            <img :src="teamMember.avatarUrl" width="50" height="50" class="border-2 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style="border-radius:50%;background-color:#000000;width:40px;height:40px;" :class="{
             'border-rust-team-member-offline': !teamMember.isOnline,
             'border-rust-team-member-online': teamMember.isOnline && teamMember.isAlive,
             'border-rust-team-member-dead': teamMember.isOnline && !teamMember.isAlive,
@@ -162,11 +162,17 @@
         <l-marker v-if="mapMarker.type === 4" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
           <l-tooltip content="CH47"/>
           <l-icon :icon-size="[20, 20]">
-            <div style="position:relative" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}">
-              <img src="images/map/chinook_map_body.png" width="30" height="30" style="width:30px;height:30px;"/>
-              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-anticlockwise" style="position: absolute;top:-5px;left:5px;width:40px;height:40px;"/> <!-- anti clockwise rotation -->
-              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-clockwise" style="position: absolute;top:15px;left:5px;width:40px;height:40px;"/> <!-- clockwise rotation -->
-            </div>
+              <div style="position:relative" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}">
+                  <img src="images/map/chinook_map_body.png" width="30" height="30" style="width:30px;height:30px;"/>
+                  <img src="images/map/chinook_map_blades.png" width="20" height="20"
+                       class="chinook-blade-spin-anticlockwise"
+                       style="position: absolute;top:-5px;left:5px;width:20px;height:20px;"/>
+                  <!-- anti clockwise rotation -->
+                  <img src="images/map/chinook_map_blades.png" width="20" height="20"
+                       class="chinook-blade-spin-clockwise"
+                       style="position: absolute;top:15px;left:5px;width:20px;height:20px;"/>
+                  <!-- clockwise rotation -->
+              </div>
           </l-icon>
         </l-marker>
       </l-layer-group>
