@@ -809,11 +809,11 @@ export default {
           // map must be loaded before markers and team info
           this.getMapMarkers();
           this.getTeamInfo();
-          this.getTime();
         });
 
       });
 
+      this.getTime();
     },
 
     getInfo: function(callback) {
