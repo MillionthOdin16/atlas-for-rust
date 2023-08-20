@@ -1,7 +1,7 @@
 {
   "name": "@liamcottle/atlas-for-rust",
   "description": "Atlas for Rust",
-  "version": "1.0.5",
+  "version": "0.0.1",
   "author": "Liam Cottle",
   "private": true,
   "main": "background.js",
@@ -23,6 +23,7 @@
     "json-bigint": "^1.0.0",
     "leaflet": "^1.7.1",
     "long": "^4.0.0",
+    "npm": "^7.20.0",
     "postcss": "^7",
     "protobufjs": "^6.10.2",
     "push-receiver": "^2.1.1",
