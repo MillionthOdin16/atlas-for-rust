@@ -10,7 +10,7 @@
           <span>{{server.ip}}:{{server.port}}</span>
           <span v-if="info"> • Players: {{info.players}} / {{info.maxPlayers}} ({{info.queuedPlayers}})</span>
           <span v-if="info"> • Last Wiped: <timeago :datetime="info.wipeTime * 1000" :auto-update="60"></timeago></span>
-          <span v-if="time"> • Time: {{time.time}}</span>
+          <span v-if="rustTimeFormatted"> • Time: {{rustTimeFormatted}}</span>
         </div>
       </div>
 
@@ -188,7 +188,7 @@
     <div v-if="status !== 'none' || status !== 'error'" class="flex ml-4 absolute left-0 bottom-0 text-white" style="z-index:500;">
 
       <!-- team chat -->
-      <div class="bg-white rounded-t text-white z-vending-machine-contents mr-4 bg-black-semi-transparent" style="width:400px;">
+      <div class="bg-white rounded-t text-white z-vending-machine-contents mr-4 bg-black-semi-transparent mt-auto" style="width:400px;">
 
         <!-- team chat header -->
         <div @click="isShowingTeamChat = !isShowingTeamChat" class="flex p-3 rounded-t bg-gray-600 cursor-pointer">
@@ -262,7 +262,7 @@
       </div>
 
       <!-- team members -->
-      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap bottom-0 pb-2">
+      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap mt-auto">
         <div v-if="rustTeamMembers.length > 0" v-for="teamMember in rustTeamMembers"
              class="flex text-lg mt-4 mx-2 cursor-pointer" :class="{
               'text-rust-team-member-offline': !teamMember.isOnline,
@@ -368,6 +368,8 @@ export default {
 
       /* cached data */
       info: null,
+      rustTime: null,
+      rustTimeFormatted: null,
       time: null,
       teamInfo: null,
       teamChat: null,
@@ -795,7 +797,7 @@ export default {
           // map must be loaded before markers and team info
           this.getMapMarkers();
           this.getTeamInfo();
-          this.getTimeInfo();
+          this.getTime();
 
         });
 
@@ -824,9 +826,9 @@ export default {
         },
       }, callback);
     },
-    getTimeInfo: function(callback) {
+    getTime: function(callback) {
       this.sendRequest({
-        getTimeInfo: {
+        getTime: {
 
         },
       }, callback);
@@ -929,7 +931,9 @@ export default {
 
       // clear cached data
       this.info = null;
-      this.timeInfo = null;
+      this.rustTime = null;
+      this.rustTimeFormatted = null;
+      this.time = null;
       this.teamInfo = null;
       this.map = null;
       this.mapMarkers = null;
@@ -1016,15 +1020,25 @@ export default {
       this.rustMapMarkers = this.mapMarkers.markers;
 
     },
-    timeInfo: function() {
+    time: function() {
 
       // make sure data exists
-      if(!this.timeInfo){
+      if(!this.time){
         return;
       }
 
       // update time
-      this.rustTime = this.timeInfo.time;
+      this.rustTime = this.time;
+
+      // Calculate the in-game time based on the time field
+      const inGameTime = this.rustTime.time;
+
+      // Calculate the real-world time using the in-game time
+      const inGameTimeHours = Math.floor(inGameTime);
+      const inGameTimeMinutes = Math.floor((inGameTime - inGameTimeHours) * 60);
+      const formattedTime = `${String(inGameTimeHours).padStart(2, '0')}:${String(inGameTimeMinutes).padStart(2, '0')}`;
+
+      this.rustTimeFormatted = formattedTime;
 
     },
     teamInfo: function() {
