@@ -220,10 +220,10 @@
     </l-map>
 
     <!-- team members and team chat overlay -->
-    <div v-if="status !== 'none' || status !== 'error'" class="flex ml-4 absolute left-0 bottom-0 text-white" style="z-index:500;">
+    <div v-if="status !== 'none' || status !== 'error'" class="flex ml-4 absolute left-0 bottom-0 text-white" style="z-index:500;pointer-events:none;">
 
       <!-- team chat -->
-      <div class="bg-white rounded-t text-white z-vending-machine-contents mr-4 bg-black-semi-transparent mt-auto" style="width:400px;">
+      <div class="bg-white rounded-t text-white z-vending-machine-contents mr-4 bg-black-semi-transparent mt-auto" style="width:400px;pointer-events:auto;">
 
         <!-- team chat header -->
         <div @click="isShowingTeamChat = !isShowingTeamChat" class="flex p-3 rounded-t bg-gray-600 cursor-pointer">
@@ -297,7 +297,7 @@
       </div>
 
       <!-- team members -->
-      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap mt-auto">
+      <div v-if="status !== 'none' || status !== 'error'" class="flex-grow flex flex-row flex-wrap mt-auto" style="pointer-events:auto;">
         <div v-if="rustTeamMembers.length > 0" v-for="teamMember in rustTeamMembers"
              class="flex text-lg mt-4 mx-2 cursor-pointer" :class="{
               'text-rust-team-member-offline': !teamMember.isOnline,
