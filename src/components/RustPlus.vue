@@ -113,6 +113,23 @@
         </l-marker>
       </l-layer-group>
 
+        <!-- map markers: Player Death -->
+        <l-layer-group v-if="deathMarkers.length > 0" layerType="overlay" name="Player Death Markers">
+            <l-marker v-for="(deathMarker, index) in deathMarkers" :zIndexOffset="910" :lat-lng="getLatLngBoundsFromWorldXY(deathMarker.x, deathMarker.y)" :key="'death_marker:' + index">
+                <l-tooltip>
+                    <span>{{ deathMarker.name }}</span>
+                    <span> (Dead)</span>
+                    <br>
+                    <span>Dead since: {{ deathMarker.deathTime }}</span>
+                </l-tooltip>
+                <l-icon>
+                    <div class="w-12 h-12 bg-red-500 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <img :src="deathMarker.avatarUrl" width="50" height="50" class="w-10 h-10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" :class="{ 'border-rust-team-member-dead': true }">
+                    </div>
+                </l-icon>
+            </l-marker>
+        </l-layer-group>
+
       <!-- map markers: Explosion=2 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Explosions">
         <l-marker v-if="mapMarker.type === 2" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
@@ -405,6 +422,7 @@ export default {
       rustMapImageColour: null,
       rustMonuments: [],
       rustMapMarkers: [],
+      deathMarkers: [],
       rustTeamMembers: [],
       rustTeamChatMessages: [],
 
@@ -925,6 +943,26 @@ export default {
     mapZoomUpdated(zoom) {
       this.mapZoom = zoom;
     },
+      // Assuming this function is called when a player dies
+      addDeathMarker(teamMember) {
+          const deathMarker = {
+              x: teamMember.x,
+              y: teamMember.y,
+              name: teamMember.name,
+              avatarUrl: teamMember.avatarUrl,
+              timestamp: Date.now(),
+              deathTime: teamMember.deathTime,
+          };
+          this.deathMarkers.push(deathMarker);
+
+          // Remove the death marker after 2 minutes
+          setTimeout(() => {
+              const index = this.deathMarkers.indexOf(deathMarker);
+              if (index !== -1) {
+                  this.deathMarkers.splice(index, 1);
+              }
+          }, 4 * 60 * 1000); // 2 minutes in milliseconds
+      },
 
   },
   computed: {
@@ -955,6 +993,7 @@ export default {
       this.rustMapImageColour = null;
       this.rustMonuments = [];
       this.rustMapMarkers = [];
+      this.deathMarkers = [],
       this.rustTeamMembers = [];
       this.rustTeamChatMessages = [];
 
@@ -1085,6 +1124,19 @@ export default {
       this.rustTeamChatMessages = this.teamChat.messages;
 
     },
+
+      rustTeamMembers: {
+          handler(newTeamMembers, oldTeamMembers) {
+              // Compare the new and old team members to detect changes
+              for (const newMember of newTeamMembers) {
+                  const oldMember = oldTeamMembers.find(member => member.name === newMember.name);
+                  if (oldMember && oldMember.isAlive && !newMember.isAlive) {
+                      this.addDeathMarker(newMember);
+                  }
+              }
+          },
+          deep: true,
+      },
   },
 }
 </script>
