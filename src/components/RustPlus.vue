@@ -140,7 +140,6 @@
         </l-marker>
       </l-layer-group>
 
-
       <!-- map markers: CH47=4 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Chinook">
         <l-marker v-if="mapMarker.type === 4" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
