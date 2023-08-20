@@ -97,7 +97,7 @@
             <span v-if="teamMember.isOnline && !teamMember.isAlive"> (Dead)</span>
           </l-tooltip>
           <l-icon>
-            <img :src="teamMember.avatarUrl" width="30" height="30" class="border-2" style="border-radius:50%;background-color:#000000;" :class="{
+            <img :src="teamMember.avatarUrl" width="50" height="50" class="border-2" style="border-radius:50%;background-color:#000000;width:40px;height:40px;" :class="{
             'border-rust-team-member-offline': !teamMember.isOnline,
             'border-rust-team-member-online': teamMember.isOnline && teamMember.isAlive,
             'border-rust-team-member-dead': teamMember.isOnline && !teamMember.isAlive,
@@ -117,7 +117,7 @@
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Explosions">
         <l-marker v-if="mapMarker.type === 2" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
           <l-tooltip content="Explosion"/>
-          <l-icon :icon-size="[30, 30]" icon-url="images/map/explosion_marker.png"></l-icon>
+          <l-icon :icon-size="[30, 30]" icon-url="images/map/explosion_marker.png" style="width:30px;height:30px;"></l-icon>
         </l-marker>
       </l-layer-group>
 
@@ -144,11 +144,11 @@
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Chinook">
         <l-marker v-if="mapMarker.type === 4" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
           <l-tooltip content="CH47"/>
-          <l-icon>
+          <l-icon :icon-size="[20, 20]">
             <div style="position:relative" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}">
-              <img src="images/map/chinook_map_body.png" width="30" height="30"/>
-              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-anticlockwise" style="position: absolute;top:-5px;left:5px;"/> <!-- anti clockwise rotation -->
-              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-clockwise" style="position: absolute;top:15px;left:5px;"/> <!-- clockwise rotation -->
+              <img src="images/map/chinook_map_body.png" width="30" height="30" style="width:30px;height:30px;"/>
+              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-anticlockwise" style="position: absolute;top:-5px;left:5px;width:40px;height:40px;"/> <!-- anti clockwise rotation -->
+              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-clockwise" style="position: absolute;top:15px;left:5px;width:40px;height:40px;"/> <!-- clockwise rotation -->
             </div>
           </l-icon>
         </l-marker>
@@ -158,8 +158,8 @@
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Cargo Ship">
         <l-marker v-if="mapMarker.type === 5" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
           <l-tooltip content="Cargo Ship"/>
-          <l-icon>
-            <img src="images/map/cargo_ship_body.png" width="30" height="30" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}"/>
+          <l-icon :icon-size="[30, 30]">
+            <img src="images/map/cargo_ship_body.png" width="30" height="30" style="width:30px;height:30px;" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}"/>
           </l-icon>
         </l-marker>
       </l-layer-group>
@@ -172,12 +172,25 @@
         </l-marker>
       </l-layer-group>
 
-      <!-- todo: GenericRadius=7 -->
       <!-- map markers: GenericRadius=7 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="GenericRadius">
         <l-marker v-if="mapMarker.type === 7" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
           <l-tooltip content="GenericRadius"/>
           <l-icon :icon-size="[30, 30]" icon-url="images/unknown_item.png"></l-icon>
+        </l-marker>
+      </l-layer-group>
+
+      <!-- map markers: PatrolHelicopter=8 -->
+      <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Patrol Helicopter">
+        <l-marker v-if="mapMarker.type === 8" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+          <l-tooltip content="Patrol Helicopter"/>
+          <l-icon :icon-size="[20, 20]">
+            <div style="position:relative" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}">
+              <img src="images/map/chinook_map_body.png" width="30" height="30" style="width:30px;height:30px;"/>
+              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-anticlockwise" style="position: absolute;top:-5px;left:5px;width:20px;height:20px;"/> <!-- anti clockwise rotation -->
+              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-clockwise" style="position: absolute;top:15px;left:5px;width:20px;height:20px;"/> <!-- clockwise rotation -->
+            </div>
+          </l-icon>
         </l-marker>
       </l-layer-group>
 
@@ -797,7 +810,6 @@ export default {
           this.getMapMarkers();
           this.getTeamInfo();
           this.getTime();
-
         });
 
       });
