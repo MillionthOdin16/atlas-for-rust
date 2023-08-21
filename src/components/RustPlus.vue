@@ -223,13 +223,13 @@
           <l-icon :icon-size="[20, 20]">
               <div style="position:relative" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}">
                   <img src="images/map/chinook_map_body.png" width="30" height="30" style="width:30px;height:30px;"/>
-                  <img src="images/map/chinook_map_blades.png" width="20" height="20"
+                  <img src="images/map/chinook_map_blades.png" width="30" height="30"
                        class="chinook-blade-spin-anticlockwise"
-                       style="position: absolute;top:-5px;left:5px;width:20px;height:20px;"/>
+                       style="position: absolute;top:-8px;left:0px;width:30px;height:30px;"/>
                   <!-- anti clockwise rotation -->
-                  <img src="images/map/chinook_map_blades.png" width="20" height="20"
+                  <img src="images/map/chinook_map_blades.png" width="30" height="30"
                        class="chinook-blade-spin-clockwise"
-                       style="position: absolute;top:15px;left:5px;width:20px;height:20px;"/>
+                       style="position: absolute;top:9px;left:0px;width:30px;height:30px;"/>
                   <!-- clockwise rotation -->
               </div>
           </l-icon>
@@ -269,7 +269,7 @@
           <l-icon :icon-size="[20, 20]">
             <div style="position:relative" :style="{ transform: 'rotate('+ (-mapMarker.rotation) +'deg)'}">
               <img src="images/map/patrol_heli_map_body.png" width="30" height="30" style="width:30px;height:30px;"/>
-              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-clockwise" style="position: absolute;top:15px;left:5px;width:20px;height:20px;"/> <!-- clockwise rotation -->
+              <img src="images/map/chinook_map_blades.png" width="20" height="20" class="chinook-blade-spin-clockwise" style="position: absolute;top:-5px;left:0px;width:30px;height:30px;"/> <!-- clockwise rotation -->
             </div>
           </l-icon>
         </l-marker>
