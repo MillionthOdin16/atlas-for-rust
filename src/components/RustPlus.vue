@@ -106,6 +106,35 @@
         </l-marker>
       </l-layer-group>
 
+        <!-- map markers: team leader map notes -->
+        <l-layer-group v-if="rustTeamLeaderMapNotes" layerType="overlay" name="Team Leader Map Notes">
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
+                <l-icon :icon-anchor="[21 / 2, 44]" :icon-size="[21, 44]" icon-url="images/map/note_overlay_team.png">
+                </l-icon>
+            </l-marker>
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="901" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
+                <l-icon>
+                    <div style="margin-left: 1px;" class="w-2 h-2 rounded-full relative top left-1/2 transform -translate-x-1/2 -translate-y-9" :class="getBackgroundColorClass(mapMarker.colorIndex)"/>
+                </l-icon>
+            </l-marker>
+        </l-layer-group>
+
+        <!-- map markers: player map notes -->
+        <l-layer-group v-if="rustMapNotes" layerType="overlay" name="Player Map Notes">
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
+                <l-icon :icon-anchor="[21 / 2, 44]" :icon-size="[21, 44]" icon-url="images/map/note_overlay_player.png"></l-icon>
+            </l-marker>
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="901" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
+                <l-icon>
+                    <div style="margin-left: 0.5px;" class="w-2.5 h-2.5 rounded-full relative top left-1/2 transform -translate-x-1/2 -translate-y-6" :class="getBackgroundColorClass(mapMarker.colorIndex)"/>
+                </l-icon>
+            </l-marker>
+        </l-layer-group>
+
       <!-- map markers: Player=1 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Player Markers">
         <l-marker v-if="mapMarker.type === 1" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
@@ -438,6 +467,8 @@ export default {
       rustMonuments: [],
       rustMapMarkers: [],
       deathMarkers: [],
+      rustTeamLeaderMapNotes: [],
+      rustMapNotes: [],
       rustTeamMembers: [],
       rustTeamChatMessages: [],
 
@@ -979,6 +1010,27 @@ export default {
           }, 4 * 60 * 1000); // 2 minutes in milliseconds
       },
 
+      getBackgroundColorClass(colorIndex) {
+          switch (colorIndex) {
+              case 0:
+                  return 'bg-yellow-400';
+              case 1:
+                  return 'bg-blue-600';
+              case 2:
+                  return 'bg-lime-500'; // Green
+              case 3:
+                  return 'bg-red-500';
+              case 4:
+                  return 'bg-purple-500';
+              case 5:
+                  return 'bg-purple-400';
+              case 6:
+                  return 'bg-pink-500';
+              default:
+                  return 'bg-gray-500'; // Default color class
+          }
+      }
+
   },
   computed: {
     rustVendingMachines: function() {
@@ -1009,6 +1061,8 @@ export default {
       this.rustMonuments = [];
       this.rustMapMarkers = [];
       this.deathMarkers = [],
+      this.rustTeamLeaderMapNotes = [],
+      this.rustMapNotes = [],
       this.rustTeamMembers = [];
       this.rustTeamChatMessages = [];
 
@@ -1126,6 +1180,35 @@ export default {
         };
 
       });
+
+      // update team leader map notes
+      this.rustTeamLeaderMapNotes = this.teamInfo.leaderMapNotes.map((mapNote) => {
+
+        return {
+          type: mapNote.type,
+          x: mapNote.x,
+          y: mapNote.y,
+          icon: mapNote.icon,
+          colorIndex: mapNote.colorIndex,
+          label: mapNote.label,
+        };
+
+      });
+
+      // update player map notes
+      this.rustMapNotes = this.teamInfo.mapNotes.map((mapNote) => {
+
+        return {
+            type: mapNote.type,
+            x: mapNote.x,
+            y: mapNote.y,
+            icon: mapNote.icon,
+            colorIndex: mapNote.colorIndex,
+            label: mapNote.label,
+        };
+
+      });
+
 
     },
     teamChat: function() {
