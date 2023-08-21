@@ -122,9 +122,19 @@
                     <br>
                     <span>Dead since: {{ deathMarker.deathTime }}</span>
                 </l-tooltip>
+                <l-icon :icon-anchor="[37 / 2, 55]" :icon-size="[37, 55]" icon-url="images/map/death_marker.png">
+                </l-icon>
+            </l-marker>
+            <l-marker v-for="(deathMarker, index) in deathMarkers" :zIndexOffset="910" :lat-lng="getLatLngBoundsFromWorldXY(deathMarker.x, deathMarker.y)" :key="'death_marker:' + index">
+                <l-tooltip>
+                    <span>{{ deathMarker.name }}</span>
+                    <span> (Dead)</span>
+                    <br>
+                    <span>Dead since: {{ deathMarker.deathTime }}</span>
+                </l-tooltip>
                 <l-icon>
-                    <div class="w-12 h-12 bg-red-500 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <img :src="deathMarker.avatarUrl" width="50" height="50" class="w-10 h-10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" :class="{ 'border-rust-team-member-dead': true }">
+                    <div class="w-6 h-6 bg-red-500 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <img :src="deathMarker.avatarUrl" class="w-5 h-5 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     </div>
                 </l-icon>
             </l-marker>
