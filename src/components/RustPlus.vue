@@ -1,58 +1,78 @@
 <template>
   <div class="w-full h-full flex flex-col relative">
 
-    <!-- top bar -->
-    <div class="flex-none flex bg-gray-700 p-2">
 
-      <div class="flex-1 mx-2 text-white">
-        <div class="text-md font-bold">{{server.name}}</div>
-        <div class="text-sm">
-          <span>{{server.ip}}:{{server.port}}</span>
-          <span v-if="info"> • Players: {{info.players}} / {{info.maxPlayers}} ({{info.queuedPlayers}})</span>
-          <span v-if="info"> • Last Wiped: <timeago :datetime="info.wipeTime * 1000" :auto-update="60"></timeago></span>
-          <span v-if="rustTimeFormatted"> • Time: {{rustTimeFormatted}}</span>
-        </div>
+      <!-- top bar -->
+      <div class="flex-none flex bg-gray-700 p-2">
+
+          <div class="flex-1 mx-2 text-white">
+              <div class="text-md font-bold">{{ server.name }}</div>
+              <div class="text-sm mt-1">
+                  <div class="flex items-center">
+                      <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                      </svg>
+                      <span class="mr-2">{{ server.ip }}:{{ server.port }}</span>
+                      <div class="bg-green-500 text-white rounded-md px-2 py-1 text-xs">
+                          {{ info.players }} / {{ info.maxPlayers }} Players
+                      </div>
+                      <div class="flex items-center ml-2 text-gray-500">
+                          <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                          </svg>
+                          <span>Last Wiped:</span>
+                          <timeago :datetime="info.wipeTime * 1000" :auto-update="60" class="ml-1"></timeago>
+                      </div>
+                      <div class="flex items-center ml-2 text-gray-500">
+                          <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                          </svg>
+                          <span>Time:</span>
+                          <span class="ml-1">{{ rustTimeFormatted }}</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="flex-none flex space-x-2 items-center">
+
+              <!-- Vending machine search button -->
+              <button v-if="status !== 'none' || status !== 'error'" @click="showVendingMachineSearch" type="button" class="my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none">
+                  <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                  <span>Search Vending Machines</span>
+              </button>
+
+              <!-- Refresh button -->
+              <button @click="reload" type="button" class="my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300 focus:outline-none">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                  </svg>
+              </button>
+
+              <!-- Connect button -->
+              <button v-if="status !== 'connected'" @click="connect" type="button" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none">
+                  Connect
+              </button>
+
+              <!-- Disconnect button -->
+              <button v-if="status === 'connected'" @click="disconnect" type="button" class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
+                  Disconnect
+              </button>
+
+              <!-- Remove server button -->
+              <button @click="removeServer" type="button" class="my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                  </svg>
+              </button>
+
+          </div>
+
       </div>
 
-      <div class="flex-none flex">
-
-        <!-- vending machine search button -->
-        <button v-if="status !== 'none' || status !== 'error'" @click="showVendingMachineSearch" type="button" class="mr-2 my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
-          <svg class="flex-none my-auto mr-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-          <span>Search Vending Machines</span>
-        </button>
-
-        <!-- refresh button -->
-        <button v-if="status === 'connected'" @click="reload" type="button" class="mr-2 my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-          </svg>
-        </button>
-
-        <!-- connect button -->
-        <button v-if="status !== 'connected'" @click="connect" type="button" class="my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none">
-          Connect
-        </button>
-
-        <!-- disconnect button -->
-        <button v-if="status === 'connected'" @click="disconnect" type="button" class="my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
-          Disconnect
-        </button>
-
-        <!-- remove server button -->
-        <button @click="removeServer" type="button" class="mx-2 my-auto inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none">
-          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
-          </svg>
-        </button>
-
-      </div>
-
-    </div>
-
-    <!-- server status -->
+      <!-- server status -->
     <div v-if="status === 'none' || status === 'error'" class="flex-1">
       <ServerNotConnected v-if="status === 'none'"/>
       <ServerError v-if="status === 'error'" :error="error"/>
