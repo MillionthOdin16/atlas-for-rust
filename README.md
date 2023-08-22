@@ -18,6 +18,20 @@ Atlas is an **unofficial** interactive map experience for [Rust](https://rust.fa
 
 <img src="./docs/map.png">
 
+## New Features Implemented
+
+- **Player Map Notes**: Added support for team leader map notes and player map notes. Marker colors mostly match.
+- **Player Death Icons**: Enhanced player death icons on the map for better visibility and accuracy.
+- **Additional Map Icons**: Included more map icons to provide comprehensive information.
+- **Patrol Helicopter Map Asset**: Added a new map asset for displaying patrol helicopter locations.
+- **Version Update Notifier**: Added a notifier to alert users of new version updates.
+- **Player Death Markers**: Added player death markers for teammates that display for 4 minutes.
+- **Custom Map Markers**: Introduced the ability to display custom markers with colors and names to the map.
+- **Visual Interface Tweaks**: Made various tweaks to the visual interface for better user experience.
+- **New Assets**: Added new assets to enhance the map interface.
+- **In-Game Time Calculation**: Display the in game time.
+- **Streamlined Bottom Bar**: Streamlined the bottom bar for improved usability.
+
 ## Features
 
 - Shows a realtime updating interactive map, including:
@@ -35,16 +49,6 @@ Atlas is an **unofficial** interactive map experience for [Rust](https://rust.fa
 - Supports "Pairing" with Rust Servers from the in game menu
 - Supports adding Rust servers manually without using the in game pairing menu
     - Useful if you run your own server and have access to server files
-
-## Features to Implement
-
-- Map
-    - Add custom markers with colour and name to the map
-- Smart Devices
-    - Pair with Smart Devices
-    - View list of Smart Devices per server
-    - User could place custom markers on map showing where Smart Alarms are triggered
-- Atlas Auto Updater, currently users will need to update manually from GitHub releases
 
 ## How to Install
 
