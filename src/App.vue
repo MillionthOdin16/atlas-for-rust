@@ -110,6 +110,18 @@
 
               </div>
 
+                <div v-if="isNewReleaseAvailable" class="flex items-center text-xs mx-2">
+                    <div class="flex items-center bg-green-600 rounded-full px-3 py-1 mr-2">
+                        <a
+                                class="cursor-pointer hover:text-gray-300"
+                                :href="releaseUrl"
+                                target="_blank"
+                        >
+                            <span class="font-bold">New Release Available!</span>
+                        </a>
+                    </div>
+                </div>
+
               <div class="flex flex-col text-white text-xs my-auto text-right">
                 <button @click="isShowingAboutModal = true" type="button" class="mx-auto inline-flex items-center pl-1.5 pr-1.5 border border-transparent rounded-full shadow-sm text-gray-800 bg-gray-300 hover:bg-gray-200 focus:outline-none">
                   <div>Atlas v{{ appversion }}</div>
@@ -217,6 +229,7 @@ export default {
 
       serverToRemoveId: null,
       lastReceivedPairNotification: null,
+      latestReleaseTag: null,
 
     };
   },
@@ -224,7 +237,21 @@ export default {
     isRustPlusConnected: function () {
       return this.steamId && this.rustplusToken;
     },
+      isNewReleaseAvailable() {
+          return (
+              this.latestReleaseTag &&
+              this.isVersionNewer(this.latestReleaseTag, appversion)
+          );
+      },
+
+      releaseUrl() {
+          return `https://github.com/MillionthOdin16/atlas-for-rust/releases/tag/${this.latestReleaseTag}`;
+      },
   },
+    created() {
+        // Fetch latest release info from GitHub API
+        this.fetchLatestRelease();
+    },
   mounted() {
 
     // load rust+ info from store
@@ -547,7 +574,45 @@ export default {
       // update selected server
       this.selectedServer = event.server;
 
-    }
+    },
+
+      sanitizeVersion(version) {
+          return version.replace(/^v/, ''); // Remove leading 'v'
+      },
+
+      isVersionNewer(versionA, versionB) {
+          versionA = this.sanitizeVersion(versionA);
+          versionB = this.sanitizeVersion(versionB);
+
+          // Example comparison logic, you might need to adjust based on your version format
+          // Assuming version format: "X.Y.Z"
+          const [majorA, minorA, patchA] = versionA.split('.').map(Number);
+          const [majorB, minorB, patchB] = versionB.split('.').map(Number);
+
+          if (majorA > majorB) {
+              return true;
+          } else if (majorA === majorB) {
+              if (minorA > minorB) {
+                  return true;
+              } else if (minorA === minorB) {
+                  return patchA > patchB;
+              }
+          }
+
+          return false;
+      },
+
+      async fetchLatestRelease() {
+          try {
+              const response = await fetch(
+                  'https://api.github.com/repos/MillionthOdin16/atlas-for-rust/releases/latest'
+              );
+              const data = await response.json();
+              this.latestReleaseTag = data.tag_name;
+          } catch (error) {
+              console.error('Error fetching latest release:', error);
+          }
+      },
 
   },
 }
