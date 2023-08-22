@@ -1027,7 +1027,7 @@ export default {
               if (index !== -1) {
                   this.deathMarkers.splice(index, 1);
               }
-          }, 4 * 60 * 1000); // 2 minutes in milliseconds
+          }, 4 * 60 * 1000); // 4 minutes in milliseconds
       },
 
       getBackgroundColorClass(colorIndex) {
