@@ -144,11 +144,12 @@
         <!-- map markers: player map notes -->
         <l-layer-group v-if="rustMapNotes" layerType="overlay" name="Player Map Notes">
             <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
-                <l-icon :icon-anchor="[21 / 2, 44]" :icon-size="[21, 44]" icon-url="images/map/note_overlay_player.png"></l-icon>
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label: 'No Description'"/>
+                <l-icon v-if="mapMarker.type === 0" :icon-anchor="[37 / 2, 55]" :icon-size="[37, 55]" icon-url="images/map/death_marker.png"></l-icon>
+                <l-icon v-else :icon-anchor="[21 / 2, 44]" :icon-size="[21, 44]" icon-url="images/map/note_overlay_player.png"></l-icon>>
             </l-marker>
-            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="901" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-if="mapMarker.type !== 0" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="901" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label: 'No Description'"/>
                 <l-icon>
                     <div style="margin-left: 0.5px;" class="w-2.5 h-2.5 rounded-full relative top left-1/2 transform -translate-x-1/2 -translate-y-6" :class="getBackgroundColorClass(mapMarker.colorIndex)"/>
                 </l-icon>
