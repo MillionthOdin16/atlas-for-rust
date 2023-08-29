@@ -442,6 +442,7 @@ export default {
       error: null,
 
       autoRefreshTimer: null,
+      markerRefreshTimer: null,
 
       /* map config */
       mapZoom: 1,
@@ -648,6 +649,7 @@ export default {
 
       // setup auto refresh
       this.autoRefreshTimer = setInterval(this.reload, 15000);
+      this.markerRefreshTimer = setInterval(this.refreshMarkers, 3000);
 
     },
     onDisconnected: function() {
@@ -815,6 +817,10 @@ export default {
         clearInterval(this.autoRefreshTimer);
       }
 
+      if(this.markerRefreshTimer){
+        clearInterval(this.markerRefreshTimer);
+      }
+
       if(this.websocket){
         this.websocket.close();
         this.websocket = null;
@@ -899,6 +905,20 @@ export default {
       });
 
       this.getTime();
+    },
+
+    refreshMarkers: function() {
+
+      // make sure connected
+      if(this.status !== 'connected'){
+        return;
+      }
+
+      this.getMapMarkers();
+      this.getTeamInfo();
+      this.getTime();
+
+
     },
 
     getInfo: function(callback) {
