@@ -129,29 +129,95 @@
         <!-- map markers: team leader map notes -->
         <l-layer-group v-if="rustTeamLeaderMapNotes" layerType="overlay" name="Team Leader Map Notes">
             <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
-                <l-icon :icon-anchor="[21 / 2, 44]" :icon-size="[21, 44]" icon-url="images/map/note_overlay_team.png">
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex"/>
+                <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]" :icon-url="getMarkerTypeUrl(mapMarker)">
                 </l-icon>
             </l-marker>
-            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="901" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
-                <l-icon>
-                    <div style="margin-left: 1px;" class="w-2 h-2 rounded-full relative top left-1/2 transform -translate-x-1/2 -translate-y-9" :class="getBackgroundColorClass(mapMarker.colorIndex)"/>
-                </l-icon>
+            <l-marker
+                @click="onMapMarkerClick(mapMarker)"
+                v-if="mapMarker.icon !== 0"
+                v-for="(mapMarker, index) in rustTeamLeaderMapNotes"
+                :zIndexOffset="901"
+                :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
+                :key="'map_marker:' + index"
+            >
+              <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex" />
+              <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
+                <img :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
+                    width: '32px',
+                    height: '32px',
+                    maskImage: `url(${getMarkerIconUrl(mapMarker.icon)})`, // Dynamic mask image
+                    maskSize: 'cover',
+                    maskRepeat: 'no-repeat',
+                    filter: 'brightness(150%)'
+                    }"
+                />
+              </l-icon>
             </l-marker>
+          <l-marker
+              v-for="(mapMarker, index) in rustTeamLeaderMapNotes"
+              :key="'map_marker:' + index"
+              :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
+              :z-index-offset="899"
+              @click="onMapMarkerClick(mapMarker)"
+          >
+            <l-tooltip
+                :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex"
+            />
+            <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
+              <img
+                  :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
+                    width: '32px',
+                    height: '32px',
+                    maskImage: `url(${getMarkerTypeBackgroundUrl(mapMarker)})`, // Dynamic mask image
+                    maskSize: 'cover',
+                    maskRepeat: 'no-repeat'
+                    }"
+              />
+            </l-icon>
+          </l-marker>
         </l-layer-group>
 
         <!-- map markers: player map notes -->
         <l-layer-group v-if="rustMapNotes" layerType="overlay" name="Player Map Notes">
             <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label: 'No Description'"/>
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex: 'No Description' + mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex"/>
                 <l-icon v-if="mapMarker.type === 0" :icon-anchor="[37 / 2, 55]" :icon-size="[37, 55]" icon-url="images/map/death_marker.png"></l-icon>
-                <l-icon v-else :icon-anchor="[21 / 2, 44]" :icon-size="[21, 44]" icon-url="images/map/note_overlay_player.png"></l-icon>>
+                <l-icon v-else :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]" :icon-url="getMarkerTypeUrl(mapMarker, true)"></l-icon>>
             </l-marker>
-            <l-marker @click="onMapMarkerClick(mapMarker)" v-if="mapMarker.type !== 0" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="901" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+
+            <l-marker
+                @click="onMapMarkerClick(mapMarker)"
+                v-if="mapMarker.icon !== 0"
+                v-for="(mapMarker, index) in rustMapNotes"
+                :zIndexOffset="901"
+                :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
+                :key="'map_marker:' + index"
+            >
+              <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex" />
+              <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
+                <img :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
+                    width: '32px',
+                    height: '32px',
+                    maskImage: `url(${getMarkerIconUrl(mapMarker.icon)})`, // Dynamic mask image
+                    maskSize: 'cover',
+                    maskRepeat: 'no-repeat'
+                    }"
+                />
+              </l-icon>
+            </l-marker>
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-if="mapMarker.type !== 0" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="899" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
                 <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label: 'No Description'"/>
                 <l-icon>
-                    <div style="margin-left: 0.5px;" class="w-2.5 h-2.5 rounded-full relative top left-1/2 transform -translate-x-1/2 -translate-y-6" :class="getBackgroundColorClass(mapMarker.colorIndex)"/>
+                  <img
+                      :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
+                    width: '32px',
+                    height: '32px',
+                    maskImage: `url(${getMarkerTypeBackgroundUrl(mapMarker)})`, // Dynamic mask image
+                    maskSize: 'cover',
+                    maskRepeat: 'no-repeat'
+                    }"
+                  />
                 </l-icon>
             </l-marker>
         </l-layer-group>
@@ -1060,18 +1126,88 @@ export default {
               case 2:
                   return 'bg-lime-500'; // Green
               case 3:
-                  return 'bg-red-500';
+                  return 'bg-red-700';
               case 4:
                   return 'bg-purple-500';
               case 5:
-                  return 'bg-purple-400';
+                  return 'bg-cyan-400';
               case 6:
                   return 'bg-pink-500';
               default:
                   return 'bg-gray-500'; // Default color class
           }
+      },
+
+    getMarkerIconUrl(markerIcon) {
+      switch (markerIcon) {
+        case 1:
+          return 'images/map/markers_iconmap_dollar.png';
+        case 9:
+          return 'images/map/markers_iconmap_gun.png';
+        case 2:
+          return 'images/map/markers_iconmap_home.png';
+        case 11:
+          return 'images/map/markers_iconmap_loot.png';
+        case 3:
+          return 'images/map/markers_iconmap_parachute.png';
+        case 10:
+          return 'images/map/markers_iconmap_rock.png';
+        case 4:
+          return 'images/map/markers_iconmap_scope.png';
+        case 5:
+          return 'images/map/markers_iconmap_shield.png';
+        case 6:
+          return 'images/map/markers_iconmap_skull.png';
+        case 7:
+          return 'images/map/markers_iconmap_sleep.png';
+        case 8:
+          return 'images/map/markers_iconmap_zzz.png';
+        default:
+          return ''; // You can provide a default icon URL
+      }
+    },
+
+      getMarkerTypeUrl(mapMarker, player = false) {
+      if (mapMarker.type === 1 && player === false) {
+        // Leader note
+          if (mapMarker.icon !== 0) {
+            return 'images/map/markers_iconmapforegroundleader.png';
+          } else if (mapMarker.icon === 0) {
+            return 'images/map/assets_markers_iconmappinfgleader.png';
+          }
+      } else if (mapMarker.type === 1 && player === true) {
+          // Player note
+          if (mapMarker.icon !== 0) {
+            return 'images/map/markers_iconmapforeground.png';
+          } else if (mapMarker.icon === 0) {
+            return 'images/map/assets_markers_iconmappinfg.png';
+          }
       }
 
+        // Provide a default icon URL if needed
+        return 'images/unknown_item.png';
+      },
+
+    getMarkerTypeBackgroundUrl(mapMarker, player = false) {
+      if (mapMarker.type === 1 && player === false) {
+        // Leader note
+        if (mapMarker.icon !== 0) {
+          return 'images/map/markers_iconmapbackground.png';
+        } else if (mapMarker.icon === 0) {
+          return 'images/map/assets_markers_iconmappinbg.png';
+        }
+      } else if (mapMarker.type === 1 && player === true) {
+        // Player note
+        if (mapMarker.icon !== 0) {
+          return 'images/map/markers_iconmapbackground.png';
+        } else if (mapMarker.icon === 0) {
+          return 'images/map/assets_markers_iconmappinbg.png';
+        }
+      }
+
+      // Provide a default icon URL if needed
+      return 'images/unknown_item.png';
+    },
   },
   computed: {
     rustVendingMachines: function() {
