@@ -129,7 +129,7 @@
         <!-- map markers: team leader map notes -->
         <l-layer-group v-if="rustTeamLeaderMapNotes" layerType="overlay" name="Team Leader Map Notes">
             <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex"/>
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
                 <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]" :icon-url="getMarkerTypeUrl(mapMarker)">
                 </l-icon>
             </l-marker>
@@ -141,7 +141,7 @@
                 :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
                 :key="'map_marker:' + index"
             >
-              <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex" />
+              <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'" />
               <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
                 <img :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
                     width: '32px',
@@ -162,7 +162,7 @@
               @click="onMapMarkerClick(mapMarker)"
           >
             <l-tooltip
-                :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex"
+                :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"
             />
             <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
               <img
@@ -181,7 +181,7 @@
         <!-- map markers: player map notes -->
         <l-layer-group v-if="rustMapNotes" layerType="overlay" name="Player Map Notes">
             <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
-                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex: 'No Description' + mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex"/>
+                <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
                 <l-icon v-if="mapMarker.type === 0" :icon-anchor="[37 / 2, 55]" :icon-size="[37, 55]" icon-url="images/map/death_marker.png"></l-icon>
                 <l-icon v-else :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]" :icon-url="getMarkerTypeUrl(mapMarker, true)"></l-icon>>
             </l-marker>
@@ -194,7 +194,7 @@
                 :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
                 :key="'map_marker:' + index"
             >
-              <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label + mapMarker.type + mapMarker.icon + mapMarker.colorIndex : 'No Description' + mapMarker.type + mapMarker.icon + mapMarker.colorIndex" />
+              <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'" />
               <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
                 <img :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
                     width: '32px',
