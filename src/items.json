@@ -114,6 +114,12 @@
         "description": "Ammunition for a Sam Site, This missile contains a rudimentary guidance system to help it navigate through strong winds."
     },
     {
+        "id": 1296788329,
+        "shortname": "ammo.rocket.seeker",
+        "name": "Homing Missile",
+        "description": "Fast moving rocket ammunition. Uses a type of radar for active target guidance from a Homing Launcher"
+    },
+    {
         "id": -17123659,
         "shortname": "ammo.rocket.smoke",
         "name": "Smoke Rocket WIP!!!!",
@@ -190,6 +196,12 @@
         "shortname": "arrow.wooden",
         "name": "Wooden Arrow",
         "description": "An arrow for a Hunting Bow and Crossbow."
+    },
+    {
+        "id": 1113514903,
+        "shortname": "attackhelicopter",
+        "name": "Attack Helicopter",
+        "description": "A fairly solid helicopter with weapons capability."
     },
     {
         "id": -1622110948,
@@ -1956,10 +1968,40 @@
         "description": "Made from Sulfur and Charcoal, a key ingredient of anything that goes bang!"
     },
     {
+        "id": -246672609,
+        "shortname": "gunrack.horizontal",
+        "name": "Horizontal Weapon Rack",
+        "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack."
+    },
+    {
+        "id": 1132603396,
+        "shortname": "gunrack_stand",
+        "name": "Weapon Rack Stand",
+        "description": "Holds weaponry haphazardly, a charmingly chaotic addition to your virtual armory."
+    },
+    {
+        "id": 240752557,
+        "shortname": "gunrack_tall.horizontal",
+        "name": "Tall Weapon Rack",
+        "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack."
+    },
+    {
+        "id": -96256997,
+        "shortname": "gunrack_wide.horizontal",
+        "name": "Wide Weapon Rack",
+        "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack."
+    },
+    {
         "id": 352499047,
         "shortname": "guntrap",
         "name": "Shotgun Trap",
         "description": "A shotgun trap triggered by movement, place near doorways and load with handmade shells."
+    },
+    {
+        "id": -1989600732,
+        "shortname": "hab.armor",
+        "name": "Hot Air Balloon Armor",
+        "description": "Armor for the Hot Air Balloon"
     },
     {
         "id": -1759188988,
@@ -2212,6 +2254,12 @@
         "shortname": "hobobarrel",
         "name": "Hobo Barrel",
         "description": "A vagabond staple. Use this repurposed oil barrel to stay warm."
+    },
+    {
+        "id": -218009552,
+        "shortname": "homingmissile.launcher",
+        "name": "Homing Missile Launcher",
+        "description": "An active-guidance homing missile launcher. Once launched, the target must be tracked by the launcher until impact. Can be distracted by flares."
     },
     {
         "id": 1751045826,
@@ -2878,6 +2926,18 @@
         "shortname": "paper",
         "name": "Paper",
         "description": "Paper, a ingredient for Building plan and Note."
+    },
+    {
+        "id": 1784005657,
+        "shortname": "parachute.deployed",
+        "name": "Parachute (Deployed)",
+        "description": "Deployed version of parachute. Hidden."
+    },
+    {
+        "id": 602628465,
+        "shortname": "parachute",
+        "name": "Parachute",
+        "description": "Once equipped, press [+jump] while in mid-air to pull the cord. Must be repacked after use. Must be at least 15m above the ground in order to deploy."
     },
     {
         "id": -575744869,
@@ -4648,6 +4708,18 @@
         "shortname": "weapon.mod.small.scope",
         "name": "8x Zoom Scope",
         "description": "A small 8x zoom scope."
+    },
+    {
+        "id": 1277159544,
+        "shortname": "weaponrack.doublelight",
+        "name": "Weapon Rack Double Light",
+        "description": "A weapon rack light."
+    },
+    {
+        "id": -1163943815,
+        "shortname": "weaponrack.light",
+        "name": "Weapon Rack Light",
+        "description": "A weapon rack light."
     },
     {
         "id": 854447607,
