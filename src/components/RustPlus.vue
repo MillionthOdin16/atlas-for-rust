@@ -201,14 +201,15 @@
                     height: '32px',
                     maskImage: `url(${getMarkerIconUrl(mapMarker.icon)})`, // Dynamic mask image
                     maskSize: 'cover',
-                    maskRepeat: 'no-repeat'
+                    maskRepeat: 'no-repeat',
+                    filter: 'brightness(150%)'
                     }"
                 />
               </l-icon>
             </l-marker>
             <l-marker @click="onMapMarkerClick(mapMarker)" v-if="mapMarker.type !== 0" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="899" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
                 <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label: 'No Description'"/>
-                <l-icon>
+                <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
                   <img
                       :class="getBackgroundColorClass(mapMarker.colorIndex)" :style="{
                     width: '32px',
