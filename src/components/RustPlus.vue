@@ -723,10 +723,19 @@ export default {
 
       // don't update status to disconnected if in error state
       if(this.status === 'error'){
+        console.log(this.error);
         return;
       }
 
       this.status = "disconnected";
+
+      if(this.autoRefreshTimer){
+        clearInterval(this.autoRefreshTimer);
+      }
+
+      if(this.markerRefreshTimer){
+        clearInterval(this.markerRefreshTimer);
+      }
 
     },
     onError: function(error) {
@@ -834,6 +843,7 @@ export default {
         this.websocket = new WebSocket(`ws://${this.server.ip}:${this.server.port}?v=${this.protocolVersion}`);
       } catch (error){
         this.onError(error);
+        console.log(error);
         return;
       }
 
