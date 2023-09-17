@@ -128,7 +128,7 @@
 
         <!-- map markers: team leader map notes -->
         <l-layer-group v-if="rustTeamLeaderMapNotes" layerType="overlay" name="Team Leader Map Notes">
-            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustTeamLeaderMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_leader_marker_bg:' + index">
                 <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
                 <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]" :icon-url="getMarkerTypeUrl(mapMarker)">
                 </l-icon>
@@ -139,7 +139,7 @@
                 v-for="(mapMarker, index) in rustTeamLeaderMapNotes"
                 :zIndexOffset="901"
                 :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
-                :key="'map_marker:' + index"
+                :key="'map_leader_marker_icon:' + index"
             >
               <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'" />
               <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
@@ -156,7 +156,7 @@
             </l-marker>
           <l-marker
               v-for="(mapMarker, index) in rustTeamLeaderMapNotes"
-              :key="'map_marker:' + index"
+              :key="'map_leader_marker_fill:' + index"
               :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
               :z-index-offset="899"
               @click="onMapMarkerClick(mapMarker)"
@@ -180,7 +180,7 @@
 
         <!-- map markers: player map notes -->
         <l-layer-group v-if="rustMapNotes" layerType="overlay" name="Player Map Notes">
-            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_player_marker_bg:' + index">
                 <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'"/>
                 <l-icon v-if="mapMarker.type === 0" :icon-anchor="[37 / 2, 55]" :icon-size="[37, 55]" icon-url="images/map/death_marker.png"></l-icon>
                 <l-icon v-else :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]" :icon-url="getMarkerTypeUrl(mapMarker, true)"></l-icon>>
@@ -192,7 +192,7 @@
                 v-for="(mapMarker, index) in rustMapNotes"
                 :zIndexOffset="901"
                 :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)"
-                :key="'map_marker:' + index"
+                :key="'map_player_marker_icon:' + index"
             >
               <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label : 'No Description'" />
               <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
@@ -207,7 +207,7 @@
                 />
               </l-icon>
             </l-marker>
-            <l-marker @click="onMapMarkerClick(mapMarker)" v-if="mapMarker.type !== 0" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="899" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+            <l-marker @click="onMapMarkerClick(mapMarker)" v-if="mapMarker.type !== 0" v-for="(mapMarker, index) in rustMapNotes" :zIndexOffset="899" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_player_marker_fill:' + index">
                 <l-tooltip :content="mapMarker.label !== '' ? mapMarker.label: 'No Description'"/>
                 <l-icon :icon-anchor="[32 / 2, 32]" :icon-size="[32, 32]">
                   <img
@@ -225,14 +225,14 @@
 
       <!-- map markers: Player=1 -->
       <l-layer-group v-if="rustMapMarkers" layerType="overlay" name="Player Markers">
-        <l-marker v-if="mapMarker.type === 1" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_marker:' + index">
+        <l-marker v-if="mapMarker.type === 1" @click="onMapMarkerClick(mapMarker)" v-for="(mapMarker, index) in rustMapMarkers" :zIndexOffset="900" :lat-lng="getLatLngBoundsFromWorldXY(mapMarker.x, mapMarker.y)" :key="'map_player_marker:' + index">
           <l-tooltip content="Player Marker"/>
         </l-marker>
       </l-layer-group>
 
         <!-- map markers: Player Death -->
         <l-layer-group v-if="deathMarkers.length > 0" layerType="overlay" name="Player Death Markers">
-            <l-marker v-for="(deathMarker, index) in deathMarkers" :zIndexOffset="910" :lat-lng="getLatLngBoundsFromWorldXY(deathMarker.x, deathMarker.y)" :key="'death_marker:' + index">
+            <l-marker v-for="(deathMarker, index) in deathMarkers" :zIndexOffset="910" :lat-lng="getLatLngBoundsFromWorldXY(deathMarker.x, deathMarker.y)" :key="'death_marker_bg:' + index">
                 <l-tooltip>
                     <span>{{ deathMarker.name }}</span>
                     <span> (Dead)</span>
@@ -242,7 +242,7 @@
                 <l-icon :icon-anchor="[37 / 2, 55]" :icon-size="[37, 55]" icon-url="images/map/death_marker.png">
                 </l-icon>
             </l-marker>
-            <l-marker v-for="(deathMarker, index) in deathMarkers" :zIndexOffset="910" :lat-lng="getLatLngBoundsFromWorldXY(deathMarker.x, deathMarker.y)" :key="'death_marker:' + index">
+            <l-marker v-for="(deathMarker, index) in deathMarkers" :zIndexOffset="910" :lat-lng="getLatLngBoundsFromWorldXY(deathMarker.x, deathMarker.y)" :key="'death_marker_avatar:' + index">
                 <l-tooltip>
                     <span>{{ deathMarker.name }}</span>
                     <span> (Dead)</span>
