@@ -100,9 +100,13 @@
 
       <!-- monument names -->
       <l-layer-group v-if="rustMonuments" layerType="overlay" name="Monuments Names">
-        <l-marker v-for="(monument, index) in rustMonuments" :zIndexOffset="700" :lat-lng="getLatLngBoundsFromWorldXY(monument.x, monument.y)" :key="'monument:' + index">
-          <l-icon class-name="rust-map-monument-text" :iconAnchor="[(5 + (2 * mapZoom)), 7]">
+        <l-marker v-for="(monument, index) in rustMonuments" v-if="getMarkerMonumentIconUrl(monument.token) === ''" :zIndexOffset="700" :lat-lng="getLatLngBoundsFromWorldXY(monument.x, monument.y)" :key="'monument:' + index">
+          <l-icon  class-name="rust-map-monument-text" :iconAnchor="[(5 + (2 * mapZoom)), 7]">
             <span :style="{fontSize: (5 + (2 * mapZoom)) + 'px'}">{{monument.name}}</span>
+          </l-icon>
+        </l-marker>
+        <l-marker  v-for="(monument, index) in rustMonuments" v-if="getMarkerMonumentIconUrl(monument.token) !== '' && getMarkerMonumentIconUrl(monument.token) !== null" :zIndexOffset="700" :lat-lng="getLatLngBoundsFromWorldXY(monument.x, monument.y)" :key="'monument_icon:' + index">
+          <l-icon :icon-anchor="[(5 + (2 * mapZoom)) / 2, (5 + (2 * mapZoom))]" :icon-size="[(5 + (2 * mapZoom)), (5 + (2 * mapZoom))]" :icon-url=getMarkerMonumentIconUrl(monument.token)>
           </l-icon>
         </l-marker>
       </l-layer-group>
@@ -1178,6 +1182,17 @@ export default {
       }
     },
 
+    getMarkerMonumentIconUrl(token) {
+      switch (token) {
+        case "train_tunnel_display_name":
+          return 'images/map/assets_markers_train.png';
+        case "DungeonBase":
+          return null;
+        default:
+          return ''; // You can provide a default icon URL
+      }
+    },
+
       getMarkerTypeUrl(mapMarker, player = false) {
       if (mapMarker.type === 1 && player === false) {
         // Leader note
@@ -1309,6 +1324,7 @@ export default {
 
         return {
           name: name,
+          token: monument.token,
           x: monument.x,
           y: monument.y,
         };
