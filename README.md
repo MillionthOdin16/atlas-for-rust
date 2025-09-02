@@ -67,6 +67,13 @@ cd atlas-for-rust
 npm install
 ```
 
+**Note for Node.js 17+**: Due to OpenSSL changes in newer Node.js versions, you may need to use the legacy OpenSSL provider:
+
+```
+NODE_OPTIONS="--openssl-legacy-provider" npm run electron:serve
+NODE_OPTIONS="--openssl-legacy-provider" npm run build
+```
+
 Run Electron app for Development
 
 ```
@@ -77,18 +84,90 @@ npm run electron:serve
 
 At this stage, GitHub actions only builds and releases Windows versions of Atlas. However, if you want to run Atlas on Mac or Linux, you can use the command below.
 
+**Note for Node.js 17+**: Use the legacy OpenSSL provider for building:
+
 ```
-npm run electron:build -- --mac --win --linux
+NODE_OPTIONS="--openssl-legacy-provider" npm run electron:build -- --mac --win --linux
 ```
 
 ## Updating Rust Assets
 
 Atlas uses images and metadata from the Rust game files. These can be updated with the [update_assets.js](./update_assets.js) script.
 
+**Prerequisites**: This script requires a local Rust game installation with the latest updates.
+
 ```shell
 node update_assets.js "<drive>:\SteamLibrary\steamapps\common\Rust"
 ```
 
+### Manual Asset Updates
+
+If you don't have a local Rust installation, you can manually add new items to the repository:
+
+1. **Add item metadata** to `src/items.json` following this structure:
+   ```json
+   {
+     "id": 123456789,
+     "shortname": "new.item.shortname",
+     "name": "Display Name",
+     "description": "Item description"
+   }
+   ```
+
+2. **Add item image** (256x256 PNG) to `public/images/items/` with filename matching the shortname
+
+3. **Test the changes** by running the development server:
+   ```
+   NODE_OPTIONS="--openssl-legacy-provider" npm run electron:serve
+   ```
+
+### Asset Update History
+
+- **Last Update**: September 19, 2023 (Rust game version from that period)
+- **Items Count**: 830 items in current database
+- **Missing Updates**: All Rust updates from September 2023 to present
+
+### Contributing Asset Updates
+
+The community can help keep assets up to date by:
+- Providing new item metadata and images from recent Rust updates
+- Submitting pull requests with properly formatted asset additions
+- Reporting missing items via GitHub issues
+
 ## Contributing
 
 If you have a feature request, or find a bug with Atlas, please open an issue here on GitHub.
+
+### Contributing New Items and Assets
+
+Atlas for Rust benefits from community contributions to keep game assets up to date. Here's how you can help:
+
+#### Adding New Items
+
+1. **Find Missing Items**: Check if new Rust items are missing from `src/items.json`
+2. **Gather Item Data**: You'll need:
+   - Item ID (from Rust game files)
+   - Shortname (internal game identifier)
+   - Display name
+   - Description
+   - 256x256 PNG image
+3. **Submit Changes**: Create a pull request with:
+   - Updated `src/items.json` with new item metadata
+   - New item image in `public/images/items/`
+   - Description of what was added
+
+#### Reporting Missing Content
+
+- Open a GitHub issue listing missing items or outdated content
+- Include Rust version/update information when possible
+- Provide screenshots or references to official Rust documentation
+
+### Repository Maintenance
+
+This repository requires periodic updates to stay current with Rust game changes:
+
+- **Asset Updates**: Should be run after major Rust updates
+- **Dependency Updates**: Keep npm packages current for security
+- **Build Compatibility**: Ensure builds work with current Node.js versions
+
+For maintainers with Rust installations, running the asset update script monthly after game updates is recommended.
