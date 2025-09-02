@@ -134,6 +134,17 @@ The community can help keep assets up to date by:
 - Submitting pull requests with properly formatted asset additions
 - Reporting missing items via GitHub issues
 
+**Quick Start for Contributors:**
+1. **Report Missing Items**: Use our [Missing Item template](https://github.com/MillionthOdin16/atlas-for-rust/issues/new?template=missing-item.md)
+2. **Research Guide**: Check [RESEARCH_GUIDE.md](./RESEARCH_GUIDE.md) for systematic research approaches
+3. **Add Items Manually**: Use `npm run add-item` for interactive item addition
+4. **Maintenance Guide**: See [MAINTENANCE.md](./MAINTENANCE.md) for detailed processes
+
+**Available Tools:**
+- `npm run validate-items` - Check database integrity
+- `npm run add-item` - Interactive item addition tool  
+- `npm run update-assets "<rust-path>"` - Full asset update (requires Rust installation)
+
 ## Contributing
 
 If you have a feature request, or find a bug with Atlas, please open an issue here on GitHub.
