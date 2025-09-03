@@ -42,6 +42,12 @@
         "description": "Standard nailgun ammunition"
     },
     {
+        "id": 785728077,
+        "shortname": "ammo.pistol",
+        "name": "Pistol Bullet",
+        "description": "Ammunition for a Pistol. Loses velocity when fired over long distances resulting in slightly decreased damage."
+    },
+    {
         "id": 51984655,
         "shortname": "ammo.pistol.fire",
         "name": "Incendiary Pistol Bullet",
@@ -54,10 +60,10 @@
         "description": "This ammunition travels faster, resulting in less drop and slightly higher damage when fired over long distances."
     },
     {
-        "id": 785728077,
-        "shortname": "ammo.pistol",
-        "name": "Pistol Bullet",
-        "description": "Ammunition for a Pistol. Loses velocity when fired over long distances resulting in slightly decreased damage."
+        "id": -1211166256,
+        "shortname": "ammo.rifle",
+        "name": "5.56 Rifle Ammo",
+        "description": "Ammunition for a Rifle. Loses velocity when fired over long distances resulting in slightly decreased damage."
     },
     {
         "id": -1321651331,
@@ -76,12 +82,6 @@
         "shortname": "ammo.rifle.incendiary",
         "name": "Incendiary 5.56 Rifle Ammo",
         "description": "Slower moving ammunition that deals fire damage. There's a small chance it will start a fire."
-    },
-    {
-        "id": -1211166256,
-        "shortname": "ammo.rifle",
-        "name": "5.56 Rifle Ammo",
-        "description": "Ammunition for a Rifle. Loses velocity when fired over long distances resulting in slightly decreased damage."
     },
     {
         "id": -742865266,
@@ -126,16 +126,16 @@
         "description": "Emits thick, visibility blocking smoke upon impact."
     },
     {
-        "id": -1036635990,
-        "shortname": "ammo.shotgun.fire",
-        "name": "12 Gauge Incendiary Shell",
-        "description": "Incendiary Shotgun Ammunition"
-    },
-    {
         "id": -1685290200,
         "shortname": "ammo.shotgun",
         "name": "12 Gauge Buckshot",
         "description": "Ammunition for a Shotgun."
+    },
+    {
+        "id": -1036635990,
+        "shortname": "ammo.shotgun.fire",
+        "name": "12 Gauge Incendiary Shell",
+        "description": "Incendiary Shotgun Ammunition"
     },
     {
         "id": -727717969,
@@ -146,8 +146,8 @@
     {
         "id": 550753330,
         "shortname": "ammo.snowballgun",
-        "name": "",
-        "description": ""
+        "name": "Snowball",
+        "description": "Ammunition for Snowball Gun. Temporary winter event item."
     },
     {
         "id": -1432674913,
@@ -336,16 +336,16 @@
         "description": "A protective barricade made out of Stones."
     },
     {
-        "id": 1373240771,
-        "shortname": "barricade.wood.cover",
-        "name": "Wooden Barricade Cover",
-        "description": "Perfect for cover when engaging in gun fights. Decays rapidly when placed outside of building privilege."
-    },
-    {
         "id": 866889860,
         "shortname": "barricade.wood",
         "name": "Wooden Barricade",
         "description": "A wooden barricade. Will hurt players and animals that run into it."
+    },
+    {
+        "id": 1373240771,
+        "shortname": "barricade.wood.cover",
+        "name": "Wooden Barricade Cover",
+        "description": "Perfect for cover when engaging in gun fights. Decays rapidly when placed outside of building privilege."
     },
     {
         "id": 1382263453,
@@ -390,6 +390,12 @@
         "description": "A colourful beach towel. Placing this will give you a location to respawn."
     },
     {
+        "id": -1520560807,
+        "shortname": "bearmeat",
+        "name": "Raw Bear Meat",
+        "description": "Raw Bear Meat. Eating it will damage your health, try cooking it first."
+    },
+    {
         "id": -989755543,
         "shortname": "bearmeat.burned",
         "name": "Burnt Bear Meat",
@@ -400,12 +406,6 @@
         "shortname": "bearmeat.cooked",
         "name": "Cooked Bear Meat",
         "description": "Delicious Bear Meat, Eating it will restore some health, hunger, and thirst."
-    },
-    {
-        "id": -1520560807,
-        "shortname": "bearmeat",
-        "name": "Raw Bear Meat",
-        "description": "Raw Bear Meat. Eating it will damage your health, try cooking it first."
     },
     {
         "id": -1273339005,
@@ -618,28 +618,28 @@
         "description": "A small camp fire. Provides warmth and light, and you can cook with it."
     },
     {
-        "id": 1655979682,
-        "shortname": "can.beans.empty",
-        "name": "Empty Can Of Beans",
-        "description": "An empty Can of Beans. Can be smelted into Metal Fragments."
-    },
-    {
         "id": -700591459,
         "shortname": "can.beans",
         "name": "Can of Beans",
         "description": "Beans found as loot. Eating it provides a small boost to health, hunger, and thirst."
     },
     {
-        "id": -1557377697,
-        "shortname": "can.tuna.empty",
-        "name": "Empty Tuna Can",
-        "description": "An empty Can of Tuna. Can be smelted into Metal Fragments."
+        "id": 1655979682,
+        "shortname": "can.beans.empty",
+        "name": "Empty Can Of Beans",
+        "description": "An empty Can of Beans. Can be smelted into Metal Fragments."
     },
     {
         "id": -1941646328,
         "shortname": "can.tuna",
         "name": "Can of Tuna",
         "description": "Chunked tuna found as loot. Eating it provides a small boost to health, hunger, and thirst."
+    },
+    {
+        "id": -1557377697,
+        "shortname": "can.tuna.empty",
+        "name": "Empty Tuna Can",
+        "description": "An empty Can of Tuna. Can be smelted into Metal Fragments."
     },
     {
         "id": 1121925526,
@@ -726,15 +726,15 @@
         "description": "A Chainsaw. Very effective at cutting trees in addition to soft fleshy objects. Requires Low Grade Fuel to run."
     },
     {
-        "id": -1944704288,
-        "shortname": "chair.icethrone",
-        "name": "Ice Throne",
-        "description": "Every home needs a chair. A decorative item which provides comfort while seated."
-    },
-    {
         "id": 1534542921,
         "shortname": "chair",
         "name": "Chair",
+        "description": "Every home needs a chair. A decorative item which provides comfort while seated."
+    },
+    {
+        "id": -1944704288,
+        "shortname": "chair.icethrone",
+        "name": "Ice Throne",
         "description": "Every home needs a chair. A decorative item which provides comfort while seated."
     },
     {
@@ -1968,12 +1968,6 @@
         "description": "Made from Sulfur and Charcoal, a key ingredient of anything that goes bang!"
     },
     {
-        "id": -246672609,
-        "shortname": "gunrack.horizontal",
-        "name": "Horizontal Weapon Rack",
-        "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack."
-    },
-    {
         "id": 1132603396,
         "shortname": "gunrack_stand",
         "name": "Weapon Rack Stand",
@@ -1989,6 +1983,12 @@
         "id": -96256997,
         "shortname": "gunrack_wide.horizontal",
         "name": "Wide Weapon Rack",
+        "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack."
+    },
+    {
+        "id": -246672609,
+        "shortname": "gunrack.horizontal",
+        "name": "Horizontal Weapon Rack",
         "description": "Artfully display your arsenal with a handcrafted wall-mounted weapon rack."
     },
     {
@@ -2142,40 +2142,10 @@
         "description": "A Hatchet, useful for chopping trees and dismembering corpses."
     },
     {
-        "id": -470439097,
-        "shortname": "hazmatsuit.arcticsuit",
-        "name": "Arctic Suit",
-        "description": "An arctic variant of the hazmat suit which trades radiation for cold protection."
-    },
-    {
-        "id": -797592358,
-        "shortname": "hazmatsuit.diver",
-        "name": "Abyss Divers Suit",
-        "description": "A divers suit found in the abyss, doubles as a reliable hazmat suit"
-    },
-    {
         "id": 1266491000,
         "shortname": "hazmatsuit",
         "name": "Hazmat Suit",
         "description": "A hazmat suit made from radiation resistant rubber."
-    },
-    {
-        "id": 861513346,
-        "shortname": "hazmatsuit.lumberjack",
-        "name": "Lumberjack Suit",
-        "description": "A Lumberjack Suit"
-    },
-    {
-        "id": 491263800,
-        "shortname": "hazmatsuit.nomadsuit",
-        "name": "Nomad Suit",
-        "description": "A nomad suit."
-    },
-    {
-        "id": -560304835,
-        "shortname": "hazmatsuit.spacesuit",
-        "name": "Space Suit",
-        "description": "A spacesuit built for harsh conditions."
     },
     {
         "id": -253079493,
@@ -2202,15 +2172,45 @@
         "description": "A hazmat suit made from radiation resistant rubber."
     },
     {
-        "id": -2123125470,
-        "shortname": "healingtea.advanced",
-        "name": "Advanced Healing Tea",
-        "description": "A tea that restores health over time."
+        "id": -470439097,
+        "shortname": "hazmatsuit.arcticsuit",
+        "name": "Arctic Suit",
+        "description": "An arctic variant of the hazmat suit which trades radiation for cold protection."
+    },
+    {
+        "id": -797592358,
+        "shortname": "hazmatsuit.diver",
+        "name": "Abyss Divers Suit",
+        "description": "A divers suit found in the abyss, doubles as a reliable hazmat suit"
+    },
+    {
+        "id": 861513346,
+        "shortname": "hazmatsuit.lumberjack",
+        "name": "Lumberjack Suit",
+        "description": "A Lumberjack Suit"
+    },
+    {
+        "id": 491263800,
+        "shortname": "hazmatsuit.nomadsuit",
+        "name": "Nomad Suit",
+        "description": "A nomad suit."
+    },
+    {
+        "id": -560304835,
+        "shortname": "hazmatsuit.spacesuit",
+        "name": "Space Suit",
+        "description": "A spacesuit built for harsh conditions."
     },
     {
         "id": -929092070,
         "shortname": "healingtea",
         "name": "Basic Healing Tea",
+        "description": "A tea that restores health over time."
+    },
+    {
+        "id": -2123125470,
+        "shortname": "healingtea.advanced",
+        "name": "Advanced Healing Tea",
         "description": "A tea that restores health over time."
     },
     {
@@ -2280,16 +2280,16 @@
         "description": "A set of wooden horse armor"
     },
     {
-        "id": -1323101799,
-        "shortname": "horse.saddle.double",
-        "name": "Double Horse Saddle",
-        "description": "A horse saddle with two seats. Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option"
-    },
-    {
         "id": -1997543660,
         "shortname": "horse.saddle",
         "name": "Horse Saddle",
         "description": "Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option"
+    },
+    {
+        "id": -1323101799,
+        "shortname": "horse.saddle.double",
+        "name": "Double Horse Saddle",
+        "description": "A horse saddle with two seats. Having this item allows you to claim a horse in a stable by holding E and selecting the \"Claim\" option"
     },
     {
         "id": 1559915778,
@@ -2406,16 +2406,16 @@
         "description": "Splits an industrial connection into three separate connections."
     },
     {
-        "id": 1268178466,
-        "shortname": "industrial.wall.light.green",
-        "name": "Green Industrial Wall Light",
-        "description": "A small green light source."
-    },
-    {
         "id": 1623701499,
         "shortname": "industrial.wall.light",
         "name": "Industrial Wall Light",
         "description": "A small light source."
+    },
+    {
+        "id": 1268178466,
+        "shortname": "industrial.wall.light.green",
+        "name": "Green Industrial Wall Light",
+        "description": "A small green light source."
     },
     {
         "id": -1160621614,
@@ -2424,14 +2424,14 @@
         "description": "A small red light source."
     },
     {
-        "id": 185586769,
-        "shortname": "innertube.horse",
+        "id": -697981032,
+        "shortname": "innertube",
         "name": "Inner Tube",
         "description": "An inflated tube for aquatic activities."
     },
     {
-        "id": -697981032,
-        "shortname": "innertube",
+        "id": 185586769,
+        "shortname": "innertube.horse",
         "name": "Inner Tube",
         "description": "An inflated tube for aquatic activities."
     },
@@ -2478,16 +2478,16 @@
         "description": "Cucumbers in a vinegar bath, jarred by an amateur. Eat at your own risk."
     },
     {
-        "id": 1601468620,
-        "shortname": "jumpsuit.suit.blue",
-        "name": "Blue Jumpsuit",
-        "description": "A Blue Jumpsuit"
-    },
-    {
         "id": -97459906,
         "shortname": "jumpsuit.suit",
         "name": "Jumpsuit",
         "description": "A Jumpsuit"
+    },
+    {
+        "id": 1601468620,
+        "shortname": "jumpsuit.suit.blue",
+        "name": "Blue Jumpsuit",
+        "description": "A Blue Jumpsuit"
     },
     {
         "id": 190184021,
@@ -2634,16 +2634,16 @@
         "description": "Happy Lunar New Year!"
     },
     {
-        "id": -2026042603,
-        "shortname": "mace.baseballbat",
-        "name": "Baseball Bat",
-        "description": ""
-    },
-    {
         "id": -1966748496,
         "shortname": "mace",
         "name": "Mace",
         "description": "A powerful 2-handed melee weapon, It's unique design makes it easier to hit your target when compared to other more traditional weapons."
+    },
+    {
+        "id": -2026042603,
+        "shortname": "mace.baseballbat",
+        "name": "Baseball Bat",
+        "description": ""
     },
     {
         "id": -1137865085,
@@ -2676,15 +2676,15 @@
         "description": "A square of cloth which is tied around the face over the nose and mouth."
     },
     {
-        "id": 603811464,
-        "shortname": "maxhealthtea.advanced",
-        "name": "Advanced Max Health Tea",
-        "description": "A tea that increases your maximum health."
-    },
-    {
         "id": -1184406448,
         "shortname": "maxhealthtea",
         "name": "Basic Max Health Tea",
+        "description": "A tea that increases your maximum health."
+    },
+    {
+        "id": 603811464,
+        "shortname": "maxhealthtea.advanced",
+        "name": "Advanced Max Health Tea",
         "description": "A tea that increases your maximum health."
     },
     {
@@ -2718,6 +2718,12 @@
         "description": "A megaphone that lets you broadcast your voice. [attack] to activate your voice."
     },
     {
+        "id": -194953424,
+        "shortname": "metal.facemask",
+        "name": "Metal Facemask",
+        "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks."
+    },
+    {
         "id": -1334569149,
         "shortname": "metal.facemask.hockey",
         "name": "Hockey Mask",
@@ -2727,12 +2733,6 @@
         "id": 110116923,
         "shortname": "metal.facemask.icemask",
         "name": "Ice Metal Facemask",
-        "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks."
-    },
-    {
-        "id": -194953424,
-        "shortname": "metal.facemask",
-        "name": "Metal Facemask",
         "description": "A protective facemask which provides the user with excellent head protection from all forms of attacks."
     },
     {
@@ -2748,15 +2748,15 @@
         "description": "A naturally occurring rock containing metal and metal compounds. You can extract this metal using a furnace."
     },
     {
-        "id": -1478855279,
-        "shortname": "metal.plate.torso.icevest",
-        "name": "Ice Metal Chest Plate",
-        "description": "A metal plate covering your torso, provides excellent protection from all forms of attacks."
-    },
-    {
         "id": 1110385766,
         "shortname": "metal.plate.torso",
         "name": "Metal Chest Plate",
+        "description": "A metal plate covering your torso, provides excellent protection from all forms of attacks."
+    },
+    {
+        "id": -1478855279,
+        "shortname": "metal.plate.torso.icevest",
+        "name": "Ice Metal Chest Plate",
         "description": "A metal plate covering your torso, provides excellent protection from all forms of attacks."
     },
     {
@@ -2880,15 +2880,15 @@
         "description": "Orange ID Tag"
     },
     {
-        "id": 2063916636,
-        "shortname": "oretea.advanced",
-        "name": "Advanced Ore Tea",
-        "description": "A tea that increases the amount of ore you receive."
-    },
-    {
         "id": 1480022580,
         "shortname": "oretea",
         "name": "Basic Ore Tea",
+        "description": "A tea that increases the amount of ore you receive."
+    },
+    {
+        "id": 2063916636,
+        "shortname": "oretea.advanced",
+        "name": "Advanced Ore Tea",
         "description": "A tea that increases the amount of ore you receive."
     },
     {
@@ -2928,16 +2928,16 @@
         "description": "Paper, a ingredient for Building plan and Note."
     },
     {
-        "id": 1784005657,
-        "shortname": "parachute.deployed",
-        "name": "Parachute (Deployed)",
-        "description": "Deployed version of parachute. Hidden."
-    },
-    {
         "id": 602628465,
         "shortname": "parachute",
         "name": "Parachute",
         "description": "Once equipped, press [+jump] while in mid-air to pull the cord. Must be repacked after use. Must be at least 15m above the ground in order to deploy."
+    },
+    {
+        "id": 1784005657,
+        "shortname": "parachute.deployed",
+        "name": "Parachute (Deployed)",
+        "description": "Deployed version of parachute. Hidden."
     },
     {
         "id": -575744869,
@@ -3132,15 +3132,15 @@
         "description": "Purple ID Tag"
     },
     {
-        "id": 2021351233,
-        "shortname": "radiationremovetea.advanced",
-        "name": "Advanced Rad. Removal Tea",
-        "description": "A tea that removes some radiation."
-    },
-    {
         "id": -496584751,
         "shortname": "radiationremovetea",
         "name": "Rad. Removal Tea",
+        "description": "A tea that removes some radiation."
+    },
+    {
+        "id": 2021351233,
+        "shortname": "radiationremovetea.advanced",
+        "name": "Advanced Rad. Removal Tea",
         "description": "A tea that removes some radiation."
     },
     {
@@ -3150,15 +3150,15 @@
         "description": "A tea that removes some radiation."
     },
     {
-        "id": -1729415579,
-        "shortname": "radiationresisttea.advanced",
-        "name": "Adv. Anti-Rad Tea",
-        "description": "A tea that reduces the amount of health lost due to radiation."
-    },
-    {
         "id": -487356515,
         "shortname": "radiationresisttea",
         "name": "Anti-Rad Tea",
+        "description": "A tea that reduces the amount of health lost due to radiation."
+    },
+    {
+        "id": -1729415579,
+        "shortname": "radiationresisttea.advanced",
+        "name": "Adv. Anti-Rad Tea",
         "description": "A tea that reduces the amount of health lost due to radiation."
     },
     {
@@ -3198,22 +3198,28 @@
         "description": "Use this item in a Research Bench to create blueprints of items."
     },
     {
-        "id": 596469572,
-        "shortname": "rf.detonator",
-        "name": "RF Transmitter",
-        "description": "A hand held RF signal broadcaster. Left click to broadcast. Configurable with right mouse."
-    },
-    {
         "id": -566907190,
         "shortname": "rf_pager",
         "name": "RF Pager",
         "description": "An RF Pager. An audible tone will be produced when a signal is picked up on the listening frequency. Can be set to silent mode."
     },
     {
+        "id": 596469572,
+        "shortname": "rf.detonator",
+        "name": "RF Transmitter",
+        "description": "A hand held RF signal broadcaster. Left click to broadcast. Configurable with right mouse."
+    },
+    {
         "id": 1394042569,
         "shortname": "rhib",
         "name": "RHIB",
         "description": ""
+    },
+    {
+        "id": 1545779598,
+        "shortname": "rifle.ak",
+        "name": "Assault Rifle",
+        "description": "High damage machine rifle."
     },
     {
         "id": -139037392,
@@ -3226,12 +3232,6 @@
         "shortname": "rifle.ak.ice",
         "name": "Assault Rifle - ICE",
         "description": "Ice-covered high damage machine rifle."
-    },
-    {
-        "id": 1545779598,
-        "shortname": "rifle.ak",
-        "name": "Assault Rifle",
-        "description": "High damage machine rifle."
     },
     {
         "id": 1588298435,
@@ -3324,15 +3324,15 @@
         "description": ""
     },
     {
-        "id": -1104881824,
-        "shortname": "rug.bear",
-        "name": "Rug Bear Skin",
-        "description": "A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity."
-    },
-    {
         "id": -1985799200,
         "shortname": "rug",
         "name": "Rug",
+        "description": "A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity."
+    },
+    {
+        "id": -1104881824,
+        "shortname": "rug.bear",
+        "name": "Rug Bear Skin",
         "description": "A decorative rug that can be placed on walls, floors, and ceilings. Provides comfort when in close proximity."
     },
     {
@@ -3432,15 +3432,15 @@
         "description": "Scrap can be used in a Research table and Workbench to unlock and research items. Often used as a currency throughout the world."
     },
     {
-        "id": 524678627,
-        "shortname": "scraptea.advanced",
-        "name": "Advanced Scrap Tea",
-        "description": "A tea that increases the amount of scrap you receive from barrels."
-    },
-    {
         "id": 263834859,
         "shortname": "scraptea",
         "name": "Basic Scrap Tea",
+        "description": "A tea that increases the amount of scrap you receive from barrels."
+    },
+    {
+        "id": 524678627,
+        "shortname": "scraptea.advanced",
+        "name": "Advanced Scrap Tea",
         "description": "A tea that increases the amount of scrap you receive from barrels."
     },
     {
@@ -3618,16 +3618,16 @@
         "description": "A very sharp curved cutting weapon. While its traditional role was to cut grass, this tool is also extremely versatile at cutting throats, perhaps trees, too."
     },
     {
-        "id": 23352662,
-        "shortname": "sign.hanging.banner.large",
-        "name": "Large Banner Hanging",
-        "description": "A large banner hanging on a wall."
-    },
-    {
         "id": 1205607945,
         "shortname": "sign.hanging",
         "name": "Two Sided Hanging Sign",
         "description": "A double sided hanging sign, to attach to buildings."
+    },
+    {
+        "id": 23352662,
+        "shortname": "sign.hanging.banner.large",
+        "name": "Large Banner Hanging",
+        "description": "A large banner hanging on a wall."
     },
     {
         "id": -1647846966,
@@ -3642,28 +3642,28 @@
         "description": "A small neon sign!"
     },
     {
-        "id": 42535890,
-        "shortname": "sign.neon.125x215.animated",
-        "name": "Medium Animated Neon Sign",
-        "description": "An animated neon sign!"
-    },
-    {
         "id": -1423304443,
         "shortname": "sign.neon.125x215",
         "name": "Medium Neon Sign",
         "description": "A medium neon sign!"
     },
     {
-        "id": 1643667218,
-        "shortname": "sign.neon.xl.animated",
-        "name": "Large Animated Neon Sign",
-        "description": "A large, animated neon sign!"
+        "id": 42535890,
+        "shortname": "sign.neon.125x215.animated",
+        "name": "Medium Animated Neon Sign",
+        "description": "An animated neon sign!"
     },
     {
         "id": 866332017,
         "shortname": "sign.neon.xl",
         "name": "Large Neon Sign",
         "description": "A large neon sign!"
+    },
+    {
+        "id": 1643667218,
+        "shortname": "sign.neon.xl.animated",
+        "name": "Large Animated Neon Sign",
+        "description": "A large, animated neon sign!"
     },
     {
         "id": -845557339,
@@ -3750,16 +3750,28 @@
         "description": "A 1-meter by 0.5-meter wooden sign that you can write on."
     },
     {
+        "id": 1312843609,
+        "shortname": "skull",
+        "name": "Skull",
+        "description": "A spooky skull"
+    },
+    {
+        "id": 553887414,
+        "shortname": "skull_fire_pit",
+        "name": "Skull Fire Pit",
+        "description": "Enjoy burning your enemies remnants to ashes with this Halloween exclusive! Provides warmth and light, and you can cook with it."
+    },
+    {
         "id": 996293980,
         "shortname": "skull.human",
         "name": "Human Skull",
         "description": "A human skull."
     },
     {
-        "id": 1312843609,
-        "shortname": "skull",
-        "name": "Skull",
-        "description": "A spooky skull"
+        "id": -769647921,
+        "shortname": "skull.trophy",
+        "name": "Skull Trophy",
+        "description": "A decorative mount that can hold the skull of a friend or foe."
     },
     {
         "id": 971362526,
@@ -3770,12 +3782,6 @@
     {
         "id": -924959988,
         "shortname": "skull.trophy.jar2",
-        "name": "Skull Trophy",
-        "description": "A decorative mount that can hold the skull of a friend or foe."
-    },
-    {
-        "id": -769647921,
-        "shortname": "skull.trophy",
         "name": "Skull Trophy",
         "description": "A decorative mount that can hold the skull of a friend or foe."
     },
@@ -3798,14 +3804,14 @@
         "description": "A spooky skull door knocker"
     },
     {
-        "id": -25740268,
-        "shortname": "skullspikes.candles",
+        "id": -1073015016,
+        "shortname": "skullspikes",
         "name": "Skull Spikes",
         "description": "A spike of several skulls. Very spooky."
     },
     {
-        "id": -1073015016,
-        "shortname": "skullspikes",
+        "id": -25740268,
+        "shortname": "skullspikes.candles",
         "name": "Skull Spikes",
         "description": "A spike of several skulls. Very spooky."
     },
@@ -3814,12 +3820,6 @@
         "shortname": "skullspikes.pumpkin",
         "name": "Skull Spikes",
         "description": "A spike of several skulls. Very spooky."
-    },
-    {
-        "id": 553887414,
-        "shortname": "skull_fire_pit",
-        "name": "Skull Fire Pit",
-        "description": "Enjoy burning your enemies remnants to ashes with this Halloween exclusive! Provides warmth and light, and you can cook with it."
     },
     {
         "id": 1819863051,
@@ -4362,16 +4362,16 @@
         "description": "High quality poppet valves for a combustion engine. Valves control the intake and exhaust flow."
     },
     {
-        "id": 1874610722,
-        "shortname": "vehicle.1mod.cockpit.armored",
-        "name": "Armored Cockpit Vehicle Module",
-        "description": "Single module armored cockpit for a driver and one passenger."
-    },
-    {
         "id": -1501451746,
         "shortname": "vehicle.1mod.cockpit",
         "name": "Cockpit Vehicle Module",
         "description": "Single module cockpit for a driver and one passenger."
+    },
+    {
+        "id": 1874610722,
+        "shortname": "vehicle.1mod.cockpit.armored",
+        "name": "Armored Cockpit Vehicle Module",
+        "description": "Single module armored cockpit for a driver and one passenger."
     },
     {
         "id": 170758448,
@@ -4440,6 +4440,12 @@
         "description": "Dual module seating."
     },
     {
+        "id": 1770744540,
+        "shortname": "vehicle.chassis",
+        "name": "Generic vehicle chassis",
+        "description": "Generic vehicle chassis"
+    },
+    {
         "id": -44066600,
         "shortname": "vehicle.chassis.2mod",
         "name": "Small Chassis",
@@ -4456,12 +4462,6 @@
         "shortname": "vehicle.chassis.4mod",
         "name": "Large Chassis",
         "description": "Four-socket vehicle chassis."
-    },
-    {
-        "id": 1770744540,
-        "shortname": "vehicle.chassis",
-        "name": "Generic vehicle chassis",
-        "description": "Generic vehicle chassis"
     },
     {
         "id": 878301596,
@@ -4482,16 +4482,16 @@
         "description": "A train car."
     },
     {
-        "id": -985781766,
-        "shortname": "wall.external.high.ice",
-        "name": "High Ice Wall",
-        "description": "A very high ice wall to protect your property."
-    },
-    {
         "id": 99588025,
         "shortname": "wall.external.high",
         "name": "High External Wooden Wall",
         "description": "A high wooden wall used to keep people off your property."
+    },
+    {
+        "id": -985781766,
+        "shortname": "wall.external.high.ice",
+        "name": "High Ice Wall",
+        "description": "A very high ice wall to protect your property."
     },
     {
         "id": -967648160,
@@ -4500,28 +4500,28 @@
         "description": "A high stone wall used to keep people off your property."
     },
     {
-        "id": -956706906,
-        "shortname": "wall.frame.cell.gate",
-        "name": "Prison Cell Gate",
-        "description": "A prison cell gate to lock things behind bars"
-    },
-    {
         "id": -1429456799,
         "shortname": "wall.frame.cell",
         "name": "Prison Cell Wall",
         "description": "A prison cell wall."
     },
     {
-        "id": 1451568081,
-        "shortname": "wall.frame.fence.gate",
-        "name": "Chainlink Fence Gate",
-        "description": "A Chainlink Fence Gate."
+        "id": -956706906,
+        "shortname": "wall.frame.cell.gate",
+        "name": "Prison Cell Gate",
+        "description": "A prison cell gate to lock things behind bars"
     },
     {
         "id": -1117626326,
         "shortname": "wall.frame.fence",
         "name": "Chainlink Fence",
         "description": "A Chainlink Fence."
+    },
+    {
+        "id": 1451568081,
+        "shortname": "wall.frame.fence.gate",
+        "name": "Chainlink Fence Gate",
+        "description": "A Chainlink Fence Gate."
     },
     {
         "id": -148794216,
@@ -4596,6 +4596,12 @@
         "description": "A high wooden watchtower with a ladder"
     },
     {
+        "id": -1779180711,
+        "shortname": "water",
+        "name": "Water",
+        "description": "Water. Drinking it will alleviate your thirst."
+    },
+    {
         "id": -1863559151,
         "shortname": "water.barrel",
         "name": "Water Barrel",
@@ -4612,12 +4618,6 @@
         "shortname": "water.catcher.small",
         "name": "Small Water Catcher",
         "description": "Collects drinkable water from the air via rain and dew. Can be connected to other entities to provide water, 20ml a second."
-    },
-    {
-        "id": -1779180711,
-        "shortname": "water",
-        "name": "Water",
-        "description": "Water. Drinking it will alleviate your thirst."
     },
     {
         "id": 2114754781,
@@ -4764,6 +4764,12 @@
         "description": "Spoiled Wolf Meat. Consuming will damage your health."
     },
     {
+        "id": -151838493,
+        "shortname": "wood",
+        "name": "Wood",
+        "description": "Wood. Collected from trees and used in many crafting recipes. It's also needed to cook in camp-fires."
+    },
+    {
         "id": -2094954543,
         "shortname": "wood.armor.helmet",
         "name": "Wood Armor Helmet",
@@ -4782,27 +4788,21 @@
         "description": "A shoddy piece of leg armor made from Wood and rope."
     },
     {
-        "id": -151838493,
-        "shortname": "wood",
-        "name": "Wood",
-        "description": "Wood. Collected from trees and used in many crafting recipes. It's also needed to cook in camp-fires."
-    },
-    {
         "id": 699075597,
         "shortname": "woodcross",
         "name": "Wooden Cross",
         "description": "A wooden cross marking the remains of an unknown soul"
     },
     {
-        "id": -541206665,
-        "shortname": "woodtea.advanced",
-        "name": "Advanced Wood Tea",
-        "description": "A tea that increases the amount of wood you receive from trees."
-    },
-    {
         "id": -649128577,
         "shortname": "woodtea",
         "name": "Basic Wood Tea",
+        "description": "A tea that increases the amount of wood you receive from trees."
+    },
+    {
+        "id": -541206665,
+        "shortname": "woodtea.advanced",
+        "name": "Advanced Wood Tea",
         "description": "A tea that increases the amount of wood you receive from trees."
     },
     {
@@ -4914,16 +4914,16 @@
         "description": "A Festive decoration to spruce up your double doorway during the holidays!"
     },
     {
-        "id": -151387974,
-        "shortname": "xmas.lightstring.advanced",
-        "name": "Deluxe Christmas Lights",
-        "description": "Colored, Animated, Powered Lights. Requires 5 electricity. Click to start placement, right click to end. Each unit is 0.5m long."
-    },
-    {
         "id": 1058261682,
         "shortname": "xmas.lightstring",
         "name": "Christmas Lights",
         "description": "A string of colored lights to decorate your home"
+    },
+    {
+        "id": -151387974,
+        "shortname": "xmas.lightstring.advanced",
+        "name": "Deluxe Christmas Lights",
+        "description": "Colored, Animated, Powered Lights. Requires 5 electricity. Click to start placement, right click to end. Each unit is 0.5m long."
     },
     {
         "id": -1622660759,

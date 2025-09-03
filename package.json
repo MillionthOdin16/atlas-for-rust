@@ -7,11 +7,15 @@
   "main": "background.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
+    "build": "NODE_OPTIONS=\"--openssl-legacy-provider\" vue-cli-service build",
+    "build:legacy": "NODE_OPTIONS=\"--openssl-legacy-provider\" vue-cli-service build",
+    "electron:build": "NODE_OPTIONS=\"--openssl-legacy-provider\" vue-cli-service electron:build",
+    "electron:serve": "NODE_OPTIONS=\"--openssl-legacy-provider\" vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "postuninstall": "electron-builder install-app-deps",
+    "add-item": "node add_item.js",
+    "update-assets": "node update_assets.js",
+    "validate-items": "node validate_items.js"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.2.1",
